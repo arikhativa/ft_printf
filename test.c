@@ -3,5 +3,5 @@
 
 int main()
 {
-	ft_printf("555%c--%d", 'H', 66);
+	ft_printf("555");
 }

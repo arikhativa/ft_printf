@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:52:27 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 16:06:34 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/16 16:37:53 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "libft.h"
 #include "ft_param_metadata.h"
+#include "ft_printf.h"
 
 static void	*create_char(char ch)
 {
@@ -27,11 +28,13 @@ static void	*create_char(char ch)
 	return (ret);
 }
 
-void	add_param_to_list(t_list **node, t_param_metadata *m)
+void	add_param_to_list(t_list **node, t_param_metadata *m, size_t *len)
 {
 	t_list	*new;
 	void	*value;
 	
+	if (m->type == ERROR)
+		return ;
 	if (m->type == 'c')
 	{
 		value = create_char(m->ch);
@@ -48,4 +51,5 @@ void	add_param_to_list(t_list **node, t_param_metadata *m)
 	if (!new)
 		return ; // TODO
 	ft_lstadd_back(node, new);
+	*len += ft_strlen((char *)value);
 }

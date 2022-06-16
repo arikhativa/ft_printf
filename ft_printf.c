@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 16:06:56 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/16 16:32:51 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 #include "ft_param_metadata.h"
 #include "ft_parser.h"
-#include "ft_parser.h"
 #include "ft_printf.h"
+#include "ft_strings.h"
 #include "libft.h"
 
 int	ft_printf(const char *s, ...)
@@ -37,9 +37,14 @@ int	ft_printf(const char *s, ...)
 	while (*runner)
 	{
 		runner = get_input_data(runner, list, &m, &len);
-		add_param_to_list(&node, &m);
-		printf("A: %s\n", node->content);
+		add_param_to_list(&node, &m, &len);
 	}
+	while (node)
+	{
+		printf("B: %s\n", node->content);
+		node = node->next;
+	}
+	print_all(s, node, len);
 	va_end(list);
 	return (0);
 	

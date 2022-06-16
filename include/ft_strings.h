@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arg_list.h                                      :+:      :+:    :+:   */
+/*   ft_strings.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 15:54:34 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 16:10:49 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/16 16:26:33 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/16 16:32:24 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARG_LIST_H
-# define FT_ARG_LIST_H
+#ifndef FT_STRINGS_H
+# define FT_STRINGS_H
 
-void	add_param_to_list(t_list **node, t_param_metadata *m, size_t *len);
+#include "libft.h"
+
+int	print_all(char *input, t_list *args, size_t len);
 
 #endif

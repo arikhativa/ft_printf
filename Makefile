@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/16 15:52:25 by yoav             ###   ########.fr        #
+#    Updated: 2022/06/16 16:33:09 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = libftprintf.a
 
 SRC = \
 	ft_arg_list.c \
+	ft_strings.c \
 	ft_printf.c \
 	ft_parse.c
 
