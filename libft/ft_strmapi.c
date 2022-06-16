@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/14 18:47:40 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/15 13:55:37 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdlib.h>
 
-#include <stdarg.h>
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*runner;
+	size_t	i;
+	char	*ret;
 
-	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
+	if (!s || !f)
+		return (NULL);
+	i = ft_strlen(s);
+	ret = (char *)malloc(sizeof(char) * (i + 1));
+	if (ret)
 	{
-		runner = ft_strchar(SEP);
+		ret[i] = 0;
+		i = 0;
+		while (s[i])
+		{
+			ret[i] = f(i, s[i]);
+			++i;
+		}
 	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+	return (ret);
 }

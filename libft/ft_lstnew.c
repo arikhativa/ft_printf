@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/15 09:18:33 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/15 09:22:51 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdlib.h>
 
-#include <stdarg.h>
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+t_list	*ft_lstnew(void *content)
 {
-	char	*runner;
+	t_list	*ret;
 
-	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
+	ret = (t_list *)malloc(sizeof(t_list));
+	if (ret)
 	{
-		runner = ft_strchar(SEP);
+		ret->content = content;
+		ret->next = NULL;
 	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+	return (ret);
 }

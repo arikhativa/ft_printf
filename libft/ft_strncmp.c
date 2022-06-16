@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/13 17:48:25 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/13 17:57:38 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-#include <stdarg.h>
-
-int	ft_printf(const char *s, ...)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	*runner;
+	size_t	i;
 
-	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
+	i = 0;
+	if (!n)
+		return (0);
+	while (*s1 && *s1 == *s2 && i < n)
 	{
-		runner = ft_strchar(SEP);
+		++s1;
+		++s2;
+		++i;
 	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+	if (i == n)
+		return (0);
+	return (*(int *)s1 - *(int *)s2);
 }

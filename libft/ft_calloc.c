@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/14 11:25:52 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/15 13:20:11 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdlib.h>
 
-#include <stdarg.h>
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char	*runner;
+	void	*ret;
+	size_t	sum;
 
-	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
-	{
-		runner = ft_strchar(SEP);
-	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+	sum = size * nmemb;
+	if (size != 0 && sum / size != nmemb)
+		return (NULL);
+	ret = malloc(sum);
+	if (ret)
+		ft_bzero(ret, nmemb * size);
+	return (ret);
 }

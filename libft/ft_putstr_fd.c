@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/14 19:43:22 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/15 15:15:03 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <unistd.h>
 
-#include <stdarg.h>
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*runner;
+	size_t	l;
 
 	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
-	{
-		runner = ft_strchar(SEP);
-	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+		return ;
+	l = ft_strlen(s);
+	write(fd, s, l);
 }

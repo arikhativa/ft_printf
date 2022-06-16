@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/14 19:45:07 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/15 13:50:04 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-#include <stdarg.h>
-
-int	ft_printf(const char *s, ...)
+void	ft_putendl_fd(char *s, int fd)
 {
-	char	*runner;
-
-	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
-	{
-		runner = ft_strchar(SEP);
-	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+	if (s)
+		ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

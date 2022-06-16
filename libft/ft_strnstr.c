@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/13 18:11:02 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/15 11:42:49 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-#include <stdarg.h>
-
-int	ft_printf(const char *s, ...)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char	*runner;
+	unsigned int	l;
+	size_t			i;
 
-	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
+	i = 0;
+	l = ft_strlen(little);
+	if (!l)
+		return ((char *)big);
+	while (big[i] && (i + l - 1) < len)
 	{
-		runner = ft_strchar(SEP);
+		if (!ft_strncmp((big + i), little, l))
+			return ((char *)big + i);
+		++i;
 	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+	return ((char *)0);
 }

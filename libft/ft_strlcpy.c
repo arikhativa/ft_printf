@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/14 10:29:24 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/15 13:56:04 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-#include <stdarg.h>
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	char	*runner;
+	size_t	i;
 
-	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
+	i = 0;
+	if (!size)
+		return (ft_strlen(src));
+	while (i + 1 < size && src[i])
 	{
-		runner = ft_strchar(SEP);
+		dst[i] = src[i];
+		++i;
 	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+	dst[i] = '\0';
+	while (src[i])
+		++i;
+	return (i);
 }

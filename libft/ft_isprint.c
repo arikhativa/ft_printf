@@ -1,34 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/13 17:16:08 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/13 17:36:23 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-#include <stdarg.h>
-
-int	ft_printf(const char *s, ...)
+int	ft_isprint(int c)
 {
-	char	*runner;
-
-	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
-	{
-		runner = ft_strchar(SEP);
-	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+	return (c >= ' ' && c < 127);
 }

@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/14 11:15:38 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/15 13:57:57 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-#include <stdarg.h>
-
-int	ft_printf(const char *s, ...)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*runner;
+	unsigned char	ch;
+	unsigned char	*runner;
 
 	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
+		return (NULL);
+	ch = (unsigned char)c;
+	runner = (unsigned char *)s;
+	while (n && *runner != ch)
 	{
-		runner = ft_strchar(SEP);
+		++runner;
+		--n;
 	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+	if (!n)
+		return (0);
+	return (runner);
 }

@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/15 11:03:57 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/15 11:08:45 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-#include <stdarg.h>
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	char	*runner;
+	t_list	*tmp;
+	t_list	*node;
 
-	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
+	if (!lst | !del)
+		return ;
+	node = *lst;
+	while (node)
 	{
-		runner = ft_strchar(SEP);
+		tmp = node->next;
+		ft_lstdelone(node, del);
+		node = tmp;
 	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+	*lst = NULL;
 }

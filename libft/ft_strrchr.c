@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/13 17:37:56 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/15 13:56:31 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-#include <stdarg.h>
-
-int	ft_printf(const char *s, ...)
+char	*ft_strrchr(const char *s, int c)
 {
-	char	*runner;
+	char	*ret;
+	int		i;
 
 	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
-	{
-		runner = ft_strchar(SEP);
-	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+		return (0);
+	ret = (char *)s;
+	c = (int)((char)c);
+	i = (int)ft_strlen(s);
+	if (!c)
+		return (ret + i);
+	--i;
+	while (i >= 0 && ret[i] != c)
+		--i;
+	if (i == -1)
+		return ((char *)0);
+	return (ret + i);
 }

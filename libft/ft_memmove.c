@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/14 11:02:24 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/15 13:48:49 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-#include <stdarg.h>
+#include "libft.h"
 
-int	ft_printf(const char *s, ...)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*runner;
+	char		*d;
+	const char	*s;
 
-	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
+	if (!dest || !src)
+		return (NULL);
+	if (dest < src)
+		return (ft_memcpy(dest, src, n));
+	d = (char *)dest;
+	s = (const char *)src;
+	while (n)
 	{
-		runner = ft_strchar(SEP);
+		--n;
+		d[n] = s[n];
 	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+	return (dest);
 }

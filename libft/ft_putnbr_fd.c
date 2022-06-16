@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 14:31:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/14 19:46:53 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/14 19:53:12 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-#include <stdarg.h>
-
-int	ft_printf(const char *s, ...)
+void	rec(long n, int fd)
 {
-	char	*runner;
-
-	if (!s)
-		return (ERROR);
-	runner = s;
-	while (runner)
+	if (n / BASE_DEC)
 	{
-		runner = ft_strchar(SEP);
+		rec(n / 10, fd);
+		rec(n % 10, fd);
 	}
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
+	if (n < BASE_DEC)
+		ft_putchar_fd(n + '0', fd);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	long	nbr;
+
+	nbr = (long)n;
+	if (nbr < 0)
+	{
+		nbr *= -1;
+		ft_putchar_fd('-', fd);
+	}
+	rec(nbr, fd);
 }
