@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_arg_list.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 19:38:03 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 15:54:46 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/16 15:54:34 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/16 15:54:42 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_ARG_LIST_H
+# define FT_ARG_LIST_H
 
-# define ERROR	-1
-# define SEP	'%'
-
-int		ft_printf(const char *, ...);
+void	add_param_to_list(t_list **node, t_param_metadata *m);
 
 #endif
