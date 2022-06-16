@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 16:32:51 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/16 17:40:33 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 #include "ft_printf.h"
 #include "ft_strings.h"
 #include "libft.h"
+
+void	free_node_content(void *data)
+{
+	free(data);
+}
 
 int	ft_printf(const char *s, ...)
 {
@@ -39,19 +44,8 @@ int	ft_printf(const char *s, ...)
 		runner = get_input_data(runner, list, &m, &len);
 		add_param_to_list(&node, &m, &len);
 	}
-	while (node)
-	{
-		printf("B: %s\n", node->content);
-		node = node->next;
-	}
 	print_all(s, node, len);
+	ft_lstclear(&node, free_node_content);
 	va_end(list);
 	return (0);
-	
-	// while s
-		// get next %
-		// create new str
-	// malloc big str
-	// cpy
-	// print
 }

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 16:39:00 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/16 17:45:41 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,22 @@ static const char	*ft_strchr_wrapper(const char *s, size_t *len)
 		++s;
 	*len += (size_t)(s - tmp);
 	return (s);
+}
+
+static int	is_special_char(char c)
+{
+	char *all_chars = "cd";
+
+	return (ft_strchr(all_chars, c) != NULL);
+}
+
+const char	*skip_special_char(const char *s)
+{
+	while (*s && !is_special_char(*s))
+		++s;
+	if (!*s)
+		return (s);
+	return (s + 1);
 }
 
 const char	*get_input_data(const char *s, va_list l, t_param_metadata *m, size_t *len)
