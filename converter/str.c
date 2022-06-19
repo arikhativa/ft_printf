@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 12:39:34 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 14:18:26 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 15:21:54 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,11 @@ void	create_str(char	*s, void **res, t_flags *f)
 
 	len = ft_strlen(s);
 	new = generic_create_str(f, len);
-	printf("X: \n");
-	printf("A: %s\n", new);
 	size = generic_get_size(f->width, len);
-	if (*res)
+	if (new)
 	{
 		start = generic_get_start(f, size, len);
-		ft_strlcpy((new + start), s, len);
+		ft_memcpy((new + start), s, len);
 	}
 	*res = (void *)new;
 }
@@ -42,6 +40,7 @@ void	convert_str(va_list l, void **res, t_flags *f)
 	char	*s;
 
 	s = va_arg(l, char *);
+	f->pad = ' ';
 	create_str(s, res, f);
 }
 

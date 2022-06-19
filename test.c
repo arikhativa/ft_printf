@@ -9,6 +9,6 @@ int main()
 {
 	// itoa_base(-11, hax, ret);
 	// printf("R: %s\n", ret);
-	ft_printf("M: '%4s'\n", "abc");
+	ft_printf("M: '%-04s'\n", "abc");
 	// ft_printf("ch: %#- 0+123c\ndec: %d\n", 'Y', 15);
 }

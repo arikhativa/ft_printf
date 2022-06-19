@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 14:05:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 14:18:22 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 15:18:40 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*generic_create_str(t_flags *f, int len)
 	ret = (char *)malloc(sizeof(char) * (size + 1));
 	if (ret)
 	{
-		ft_memset(ret, ' ', size);
+		ft_memset(ret, f->pad, size);
 		ret[size] = '\0';
 	}
 	return (ret);
