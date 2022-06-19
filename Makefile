@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/19 10:18:26 by yoav             ###   ########.fr        #
+#    Updated: 2022/06/19 12:35:14 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 SRC = \
 	$(wildcard list/*.c) \
-	$(wildcard setters/*.c) \
+	$(wildcard converter/*.c) \
 	$(wildcard parser/*.c) \
 	$(wildcard printer/*.c) \
 	ft_printf.c

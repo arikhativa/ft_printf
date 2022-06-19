@@ -7,6 +7,8 @@ int main()
 	// printf("ch: '%10s'\n", "123");
 	// printf("ch: '%-10s'\n", " 123");
 	// printf("'%10d'\n", 11);
-	// printf("'%-10d'\n", 111);
-	ft_printf("ch: %#- 0+123c\ndec: %d\n", 'Y', 15);
+	// printf("'%4s'\n", "123");
+	printf("R: '%-06s'\n", "123");
+	ft_printf("M: '%-06s'\n", "123");
+	// ft_printf("ch: %#- 0+123c\ndec: %d\n", 'Y', 15);
 }

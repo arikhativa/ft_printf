@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:46:08 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 11:36:57 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 13:04:43 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 const char	*get_flag(const char *s, t_flags *f)
 {
+	f->pad = ' ';
 	while (ft_strchr(ALL_FLAGS, *s))
 	{
 		if (' ' == *s)
@@ -22,7 +23,7 @@ const char	*get_flag(const char *s, t_flags *f)
 		else if ('#' == *s)
 			f->hash = TRUE;
 		else if ('0' == *s)
-			f->zero = TRUE;
+			f->pad = '0';
 		else if ('+' == *s)
 			f->plus = TRUE;
 		else if ('-' == *s)

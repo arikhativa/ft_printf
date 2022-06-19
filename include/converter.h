@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_dec.c                                          :+:      :+:    :+:   */
+/*   converter.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 10:42:37 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/19 10:01:54 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/19 13:20:35 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CONVERTER_H
+# define CONVERTER_H
+
+# define PADDING ' '
+
 #include <stdarg.h>
 
-#include "libft.h"
 #include "parser.h"
 
-void	*set_dec(va_list l, void **res, t_flags *flags)
-{
-	int	d;
-	d = va_arg(l, int);
+void	create_char(va_list l, void **res, t_flags *flags);
+void	create_dec(va_list l, void **res, t_flags *flags);
+void	create_str(va_list l, void **res, t_flags *f);
 
-	*res = (void *)ft_itoa(d);
-}
+#endif

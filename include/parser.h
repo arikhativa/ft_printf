@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:47:03 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 11:36:26 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 12:53:58 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ typedef struct	s_flags
 	int		hash;
 	int		space;
 	int		plus;
-	int		zero;
 	int		left_adjusted;
-	int		precision;
 	int		width;
+	int		precision;
 	char	conversion;
+	char	pad;
 }	t_flags;
 
 // TODO remove
@@ -35,7 +35,7 @@ typedef struct	s_flags
 				f->hash, f->space, f->plus, f->zero, f->left_adjusted,f->precision, f->width, f->conversion);
 
 
-const char		*get_input_data(const char *s, va_list l, void **content, size_t *len);
+const char	*get_input_data(const char *s, va_list l, void **content, size_t *len);
 const char	*skip_special_char(const char *s);
 
 #endif

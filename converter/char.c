@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setter0.c                                          :+:      :+:    :+:   */
+/*   char.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 09:34:25 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 09:57:36 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/19 09:52:33 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/19 13:00:38 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// void	set_str(va_list l, t_param_metadata *m)
-// {
-// 	m->type = 's';
-// 	m->dec = va_arg(l, (char *));
-// }
+#include <stdarg.h>
+#include <stdlib.h>
 
-// void	set_ptr(va_list l, t_param_metadata *m)
-// {
-// 	m->type = 'p';
-// 	m->dec = va_arg(l, (void *));
-// }
+#include "parser.h"
 
-// void	set_int(va_list l, t_param_metadata *m)
-// {
-// 	m->type = 'i';
-// 	m->dec = va_arg(l, int);
-// }
+static int get_size(int w)
+{
+	if (w)
+		return (w + 1);
+	return (2);
+}
+
+void	create_char(va_list l, void **res, t_flags *flags)
+{
+}

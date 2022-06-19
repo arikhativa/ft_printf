@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 11:14:51 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 13:15:43 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "libft.h"
 #include "ft_printf.h"
-#include "setters.h"
+#include "converter.h"
 #include "flags.h"
 
 static const char	*ft_strchr_wrapper(const char *s, size_t *len)
@@ -31,7 +31,7 @@ static const char	*ft_strchr_wrapper(const char *s, size_t *len)
 
 static int	is_special_char(char c)
 {
-	char *all_chars = "cd";
+	char *all_chars = "cspdiuxX"; // TODO not sure about %
 
 	return (ft_strchr(all_chars, c) != NULL);
 }
@@ -48,9 +48,11 @@ const char	*skip_special_char(const char *s)
 static void	create_content(va_list l, void **content, t_flags *flags)
 {
 	if ('c' == flags->conversion)
-		set_char(l, content, flags);
+		create_char(l, content, flags);
+	else if ('s' == flags->conversion)
+		create_str(l, content, flags);
 	else if ('d' == flags->conversion)
-		set_dec(l, content, flags);
+		create_dec(l, content, flags);
 }
 
 const char	*get_input_data(const char *s, va_list l, void **content, size_t *len)
