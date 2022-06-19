@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:13:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 17:59:10 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 09:10:27 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	cpy_from_list(char **dest, t_list **list)
 		++i;
 	}
 	*list = (*list)->next;
-	*dest = (d + i + 1);
+	*dest = (d + i);
 }
 
 static char	*create_str_to_print(char *input, t_list *list, size_t len)
@@ -79,7 +79,6 @@ int	print_all(char *input, t_list *list, size_t len)
 	s = create_str_to_print(input, list, len);
 	if (!s)
 		return (ERROR);
-	printf("LL: '%s'\n", s);
 	write(1, s, len);
 	free(s);
 }
