@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 13:30:26 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 14:06:57 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 #include "libft.h"
 #include "parser.h"
+
+static char	*create_str()
+{
+	
+}
 
 void	convert_dec(va_list l, void **res, t_flags *f)
 {
