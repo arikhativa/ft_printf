@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:46:08 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 11:13:44 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 11:36:57 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ const char	*get_flag(const char *s, t_flags *f)
 			f->plus = TRUE;
 		else if ('-' == *s)
 			f->left_adjusted = TRUE;
-		else if ('.' == *s)
-			f->precision = TRUE;
+		// else if ('.' == *s) // TODO
+			// f->precision = TRUE;
 		++s;
 	}
 	return (s);
