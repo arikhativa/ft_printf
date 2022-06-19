@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:01:54 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 10:16:32 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 10:41:57 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 #include <stdarg.h>
 
-void	*set_char(va_list l, void **res);
-void	*set_dec(va_list l, void **res);
+#include "parser.h"
+
+void	*set_char(va_list l, void **res, t_flags *flags);
+void	*set_dec(va_list l, void **res, t_flags *flags);
 
 #endif

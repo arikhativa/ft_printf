@@ -6,19 +6,19 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 10:16:06 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 10:30:27 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stddef.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
-#include "ft_param_metadata.h"
-#include "parser.h"
-#include "ft_printf.h"
-#include "printer.h"
 #include "libft.h"
+#include "ft_printf.h"
+#include "list.h"
+#include "parser.h"
+#include "printer.h"
 
 void	free_node_content(void *data)
 {

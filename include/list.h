@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arg_list.h                                      :+:      :+:    :+:   */
+/*   list.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:54:34 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 16:10:49 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 10:30:09 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARG_LIST_H
-# define FT_ARG_LIST_H
+#ifndef LIST_H
+# define LIST_H
 
-void	add_param_to_list(t_list **node, t_param_metadata *m, size_t *len);
+void	add_param_to_list(t_list **node, void *content, size_t *len);
 
 #endif

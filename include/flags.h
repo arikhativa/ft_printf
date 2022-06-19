@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_dec.c                                          :+:      :+:    :+:   */
+/*   flags.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 10:42:37 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/19 11:14:33 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/19 11:14:39 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#ifndef FLAGS_H
+# define FLAGS_H
 
-#include "libft.h"
-#include "parser.h"
+const char	*get_all_flags(const char *s, t_flags *f);
 
-void	*set_dec(va_list l, void **res, t_flags *flags)
-{
-	int	d;
-	d = va_arg(l, int);
-
-	*res = (void *)ft_itoa(d);
-}
+#endif

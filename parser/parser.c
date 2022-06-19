@@ -6,17 +6,17 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 10:17:10 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 11:14:51 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdarg.h>
 
-#include "setters.h"
 #include "libft.h"
 #include "ft_printf.h"
-#include "ft_param_metadata.h"
+#include "setters.h"
+#include "flags.h"
 
 static const char	*ft_strchr_wrapper(const char *s, size_t *len)
 {
@@ -45,16 +45,18 @@ const char	*skip_special_char(const char *s)
 	return (s + 1);
 }
 
-static void	create_content(int s, va_list l, void **content)
+static void	create_content(va_list l, void **content, t_flags *flags)
 {
-	if ('c' == s)
-		set_char(l, content);
-	else if ('d' == s)
-		set_dec(l, content);
+	if ('c' == flags->conversion)
+		set_char(l, content, flags);
+	else if ('d' == flags->conversion)
+		set_dec(l, content, flags);
 }
 
 const char	*get_input_data(const char *s, va_list l, void **content, size_t *len)
 {
+	t_flags	flags;
+
 	*content = NULL;
 	s = ft_strchr_wrapper(s, len);
 	if (!s || !(*s) || *s != '%')
@@ -62,6 +64,7 @@ const char	*get_input_data(const char *s, va_list l, void **content, size_t *len
 	++s;
 	if (!*s)
 		return (s);
-	create_content((int)*s, l, content);
-	return (s + 1);
+	s = get_all_flags(s, &flags);
+	create_content(l, content, &flags);
+	return (s);
 }

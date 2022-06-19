@@ -6,14 +6,14 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:52:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 10:09:29 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 10:42:32 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <stdlib.h>
 
-#include "ft_param_metadata.h"
+#include "parser.h"
 
 static void	*create_char(char ch)
 {
@@ -27,7 +27,7 @@ static void	*create_char(char ch)
 	return (ret);
 }
 
-void	set_char(va_list l, void **res)
+void	set_char(va_list l, void **res, t_flags *flags)
 {
 	char c;
 
