@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 13:24:28 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 15:58:33 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,10 @@ static void	create_content(va_list l, void **content, t_flags *flags)
 		convert_str(l, content, flags);
 	else if ('d' == flags->conversion)
 		convert_dec(l, content, flags);
+	else if ('x' == flags->conversion)
+		convert_hax_lower(l, content, flags);
+	else if ('X' == flags->conversion)
+		convert_hax_upper(l, content, flags);
 }
 
 const char	*get_input_data(const char *s, va_list l, void **content, size_t *len)

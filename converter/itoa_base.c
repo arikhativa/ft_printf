@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 13:47:44 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 15:39:56 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 16:15:27 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	rec(long n, long base, char *base_str, char *ret)
 		*ret = base_str[n];
 }
 
-long	count_digit_by_base_no_sign(long n, long base)
+long	count_digit_by_base(long n, long base)
 {
 	long	ret;
 
@@ -38,16 +38,12 @@ long	count_digit_by_base_no_sign(long n, long base)
 	return (ret);
 }
 
-void	itoa_base_no_sign(int n, char *base_str, char *ret)
+void	itoa_base(long n, char *base_str, char *ret, int digit)
 {
-	long	nbr;
 	long	base;
-	long	digit;
 
-	nbr = (long)n;
 	base = (long)ft_strlen(base_str);
-	digit = count_digit_by_base_no_sign(nbr, base);
-	if (0 > nbr)
-		nbr *= -1;
-	rec(nbr, base, base_str, (ret + digit - 1));
+	if (0 > n)
+		n *= -1;
+	rec(n, base, base_str, (ret + digit - 1));
 }

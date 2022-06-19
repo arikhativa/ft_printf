@@ -6,12 +6,14 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 11:14:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 14:13:12 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 16:07:48 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FLAGS_H
 # define FLAGS_H
+
+#define ALL_FLAGS	"-0.# +"
 
 typedef struct	s_flags
 {

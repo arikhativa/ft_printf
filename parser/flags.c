@@ -6,11 +6,12 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:46:08 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 13:04:43 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 16:08:43 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "libft.h"
+#include "flags.h"
 #include "ft_printf.h"
 
 const char	*get_flag(const char *s, t_flags *f)
@@ -32,6 +33,9 @@ const char	*get_flag(const char *s, t_flags *f)
 			// f->precision = TRUE;
 		++s;
 	}
+	if (f->left_adjusted)
+		f->pad = ' ';
+
 	return (s);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:47:03 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 14:13:07 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 16:08:00 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 #include <stddef.h>
 #include <stdarg.h>
-
-#define ALL_FLAGS	"-0.# +"
 
 // TODO remove
 // printf("f: \nhash: %d\nspace: %d\nplus: %d\nzero: %d\nleft_adjusted: %d\nprecision: %d\nwidth: %d\nconversion: %c\n",\
