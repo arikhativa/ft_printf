@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   set_dec.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 19:38:03 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 09:24:05 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/19 10:09:39 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <stdarg.h>
 
-# define ERROR	-1
-# define SEP	'%'
+#include "libft.h"
 
-int		ft_printf(const char *, ...);
+void	*set_dec(va_list l, void **res)
+{
+	int	d;
+	d = va_arg(l, int);
 
-#endif
+	*res = (void *)ft_itoa(d);
+}

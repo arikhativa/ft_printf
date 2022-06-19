@@ -6,17 +6,18 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/16 16:33:09 by yoav             ###   ########.fr        #
+#    Updated: 2022/06/19 10:18:26 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRC = \
-	ft_arg_list.c \
-	ft_strings.c \
-	ft_printf.c \
-	ft_parse.c
+	$(wildcard list/*.c) \
+	$(wildcard setters/*.c) \
+	$(wildcard parser/*.c) \
+	$(wildcard printer/*.c) \
+	ft_printf.c
 
 BONUS_SRC = no.c
 

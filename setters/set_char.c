@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strings.h                                       :+:      :+:    :+:   */
+/*   set_char.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 16:26:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 17:16:04 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/19 09:52:33 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/19 10:09:29 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STRINGS_H
-# define FT_STRINGS_H
+#include <stdarg.h>
+#include <stdlib.h>
 
-#include "libft.h"
+#include "ft_param_metadata.h"
 
-int	print_all(char *input, t_list *list, size_t len);
+static void	*create_char(char ch)
+{
+	char	*ret;
+	ret = (char *)malloc(sizeof(char) * 2);
+	if (ret)
+	{
+		ret[0] = ch;
+		ret[1] = '\0';
+	}
+	return (ret);
+}
 
-#endif
+void	set_char(va_list l, void **res)
+{
+	char c;
+
+	c = va_arg(l, int);
+	*res = create_char(c);
+}

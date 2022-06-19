@@ -1,55 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arg_list.c                                      :+:      :+:    :+:   */
+/*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:52:27 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/16 16:37:53 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 10:18:16 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 #include "libft.h"
-#include "ft_param_metadata.h"
-#include "ft_printf.h"
 
-static void	*create_char(char ch)
-{
-	char	*ret;
-	ret = (char *)malloc(sizeof(char) * 2);
-	if (ret)
-	{
-		ret[0] = ch;
-		ret[1] = '\0';
-	}
-	return (ret);
-}
-
-void	add_param_to_list(t_list **node, t_param_metadata *m, size_t *len)
+void	add_param_to_list(t_list **node, void *content, size_t *len)
 {
 	t_list	*new;
-	void	*value;
 	
-	if (m->type == ERROR)
+	if (content == NULL)
 		return ;
-	if (m->type == 'c')
-	{
-		value = create_char(m->ch);
-		if (!value)
-			return ; // TODO
-	}
-	if (m->type == 'd')
-	{
-		value = (void *)ft_itoa(m->dec);
-		if (!value)
-			return ; // TODO
-	}
-	new = ft_lstnew(value);
+	new = ft_lstnew(content);
 	if (!new)
 		return ; // TODO
 	ft_lstadd_back(node, new);
-	*len += ft_strlen((char *)value);
+	*len += ft_strlen((char *)content);
 }

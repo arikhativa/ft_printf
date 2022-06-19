@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   setters.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 19:38:03 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 09:24:05 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/19 10:01:54 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/19 10:16:32 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef SETTERS_H
+# define SETTERS_H
 
-# define ERROR	-1
-# define SEP	'%'
+#include <stdarg.h>
 
-int		ft_printf(const char *, ...);
+void	*set_char(va_list l, void **res);
+void	*set_dec(va_list l, void **res);
 
 #endif

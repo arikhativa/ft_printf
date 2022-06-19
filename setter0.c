@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   setter0.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 19:38:03 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 09:24:05 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/19 09:34:25 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/19 09:57:36 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+// void	set_str(va_list l, t_param_metadata *m)
+// {
+// 	m->type = 's';
+// 	m->dec = va_arg(l, (char *));
+// }
 
-# define ERROR	-1
-# define SEP	'%'
+// void	set_ptr(va_list l, t_param_metadata *m)
+// {
+// 	m->type = 'p';
+// 	m->dec = va_arg(l, (void *));
+// }
 
-int		ft_printf(const char *, ...);
-
-#endif
+// void	set_int(va_list l, t_param_metadata *m)
+// {
+// 	m->type = 'i';
+// 	m->dec = va_arg(l, int);
+// }
