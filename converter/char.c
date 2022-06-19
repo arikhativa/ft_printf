@@ -6,22 +6,20 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:52:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 13:00:38 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 13:29:42 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <stdlib.h>
 
-#include "parser.h"
+#include "converter.h"
 
-static int get_size(int w)
+void	convert_char(va_list l, void **res, t_flags *f)
 {
-	if (w)
-		return (w + 1);
-	return (2);
-}
+	char s[2];
 
-void	create_char(va_list l, void **res, t_flags *flags)
-{
+	s[0] = va_arg(l, int);
+	s[1] = '\0';
+	create_str(s, res, f);
 }

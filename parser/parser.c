@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 13:15:43 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 13:24:28 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ const char	*skip_special_char(const char *s)
 static void	create_content(va_list l, void **content, t_flags *flags)
 {
 	if ('c' == flags->conversion)
-		create_char(l, content, flags);
+		convert_char(l, content, flags);
 	else if ('s' == flags->conversion)
-		create_str(l, content, flags);
+		convert_str(l, content, flags);
 	else if ('d' == flags->conversion)
-		create_dec(l, content, flags);
+		convert_dec(l, content, flags);
 }
 
 const char	*get_input_data(const char *s, va_list l, void **content, size_t *len)

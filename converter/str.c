@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 12:39:34 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 13:21:33 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 13:29:56 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,13 @@ static int	get_start(t_flags *f, int size, int len)
 	return (size - len);
 }
 
-void	create_str(va_list list, void **res, t_flags *f)
+void	create_str(char	*s, void **res, t_flags *f)
 {
-	char	*s;
 	int		len;
 	int		size;
 	int		start;
 	int		i;
 
-	s = va_arg(list, char *);
 	len = ft_strlen(s);
 	size = get_size(f->width, len);
 	*res = (char *)malloc(sizeof(char) * (size + 1));
@@ -56,4 +54,13 @@ void	create_str(va_list list, void **res, t_flags *f)
 		}
 	}
 }
+
+void	convert_str(va_list l, void **res, t_flags *f)
+{
+	char	*s;
+
+	s = va_arg(l, char *);
+	create_str(s, res, f);
+}
+
 
