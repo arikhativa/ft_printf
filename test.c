@@ -4,9 +4,9 @@
 
 int main()
 {
-	const char *s = "%c: '%5X'\n";
-	unsigned int n = -0x1;
+	const char *s = "%c: '%#x'\n";
+	unsigned int n = 255;
 
-	printf(s, 'R', n);
-	ft_printf(s, 'M', n);
+	printf(s, 'R', &n);
+	ft_printf(s, 'M', &n);
 }

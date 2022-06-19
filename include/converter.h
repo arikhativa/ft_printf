@@ -6,16 +6,15 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:01:54 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 16:14:13 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 16:28:47 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONVERTER_H
 # define CONVERTER_H
 
-# define PADDING ' '
-
 #include <stdarg.h>
+#include <stddef.h>
 
 #include "flags.h"
 
@@ -36,7 +35,7 @@ void	convert_generic_unsigned_number(unsigned long nbr, void **res, t_flags *f, 
 void	convert_hax_upper(va_list l, void **res, t_flags *f);
 void	convert_hax_lower(va_list l, void **res, t_flags *f);
 
-void	itoa_base_unsigned(unsigned int n, char *base_str, char *ret, int digit);
-
+void	stoa_base(size_t n, char *base_str, char *ret, size_t digit);
+long	count_digit_by_base_unsigned(size_t n, long base);
 
 #endif

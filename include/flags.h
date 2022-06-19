@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 11:14:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 16:07:48 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 16:45:10 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 typedef struct	s_flags
 {
+	int		is_upper;
 	int		hash;
 	int		space;
 	int		plus;

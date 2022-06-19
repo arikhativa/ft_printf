@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:46:08 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 16:08:43 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 16:50:47 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ const char	*get_flag(const char *s, t_flags *f)
 	}
 	if (f->left_adjusted)
 		f->pad = ' ';
-
 	return (s);
 }
 
