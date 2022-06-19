@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 14:05:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 15:18:40 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/19 15:38:07 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,18 @@
 #include "libft.h"
 #include "flags.h"
 
-int generic_get_size(int w, int l)
+static int	generic_get_size(int w, int l)
 {
 	if (w > l)
 		return (w);
 	return (l);
 }
 
-int	generic_get_start(t_flags *f, int size, int len)
+int	generic_get_start(t_flags *f, int len)
 {
+	int	size;
+
+	size = generic_get_size(f->width, len);
 	if (f->left_adjusted)
 		return (0);
 	return (size - len);

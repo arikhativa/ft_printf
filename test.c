@@ -7,8 +7,9 @@ void	itoa_base(int n, char *base_str, char *ret);
 
 int main()
 {
-	// itoa_base(-11, hax, ret);
-	// printf("R: %s\n", ret);
-	ft_printf("M: '%-04s'\n", "abc");
-	// ft_printf("ch: %#- 0+123c\ndec: %d\n", 'Y', 15);
+	const char *s = "%c: '% +5d'\n";
+	int n = 11;
+
+	printf(s, 'R', n);
+	ft_printf(s, 'M', n);
 }
