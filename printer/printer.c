@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:13:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 08:06:36 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 11:06:42 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 static void	cpy_from_input(char **dest, const char **input)
 {
 	const char	*s;
-	char	*d;
-	int		i;
+	char		*d;
+	int			i;
 
 	s = *input;
 	d = *dest;
@@ -62,7 +62,7 @@ static char	*create_str_to_print(const char *input, t_list *list, size_t len)
 
 	ret = (char *)malloc(sizeof(char) * (len + 1));
 	if (!ret)
-		return (NULL); // TODO
+		return (NULL);
 	ret[len] = '\0';
 	runner = ret;
 	while (*input)
@@ -73,14 +73,14 @@ static char	*create_str_to_print(const char *input, t_list *list, size_t len)
 	return (ret);
 }
 
-void	print_all(char *input, t_list *list, size_t len)
+int	print_all(char *input, t_list *list, size_t len)
 {
 	char	*s;
-	
+
 	s = create_str_to_print(input, list, len);
-	if (s)
-	{
-		write(1, s, len);
-		free(s);
-	}
+	if (!s)
+		return (ERROR);
+	write(1, s, len);
+	free(s);
+	return (SUCCESS);
 }

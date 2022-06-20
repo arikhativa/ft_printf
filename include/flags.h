@@ -6,16 +6,16 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 11:14:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 16:45:10 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 08:32:32 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FLAGS_H
 # define FLAGS_H
 
-#define ALL_FLAGS	"-0.# +"
+# define ALL_FLAGS	"-0.# +"
 
-typedef struct	s_flags
+typedef struct s_flags
 {
 	int		is_upper;
 	int		hash;

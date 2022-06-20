@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 16:52:08 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 08:36:50 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static void	add_pad_if_needed(t_flags *f, size_t start, char *ret)
 		ft_memcpy((ret + start), HEX_MARK_LOWER, ft_strlen(HEX_MARK_LOWER));
 }
 
-void	convert_generic_unsigned_number(size_t nbr, void **res, t_flags *f, char *base)
+void	convert_generic_unsigned_number(\
+					size_t nbr, void **res, t_flags *f, char *base)
 {
 	char	*ret;
 	size_t	digit;
@@ -42,6 +43,5 @@ void	convert_generic_unsigned_number(size_t nbr, void **res, t_flags *f, char *b
 	start = generic_get_start(f, (digit + pad));
 	stoa_base(nbr, base, (ret + start + pad), digit);
 	add_pad_if_needed(f, start, ret);
-	
 	*res = ret;
 }

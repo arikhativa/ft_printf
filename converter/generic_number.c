@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 18:50:00 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 08:37:18 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@ void	convert_generic_number(long nbr, void **res, t_flags *f, char *base)
 	start = generic_get_start(f, (digit + pad));
 	itoa_base(nbr, base, (ret + pad + start), digit);
 	add_pad_if_needed(f, nbr, start, ret);
-	
 	*res = ret;
 }

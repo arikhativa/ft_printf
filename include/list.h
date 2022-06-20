@@ -6,13 +6,13 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:54:34 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 10:30:09 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 11:01:56 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
 
-void	add_param_to_list(t_list **node, void *content, size_t *len);
+int	add_param_to_list(t_list **node, void *content, size_t *len);
 
 #endif
