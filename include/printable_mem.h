@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unsigned_dec.c                                     :+:      :+:    :+:   */
+/*   printable_mem.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:11:59 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/20 14:23:51 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/20 15:47:01 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PRINTABLE_MEM_H
+# define PRINTABLE_MEM_H
+
+#include <stddef.h>
 #include <stdarg.h>
 
-#include "generic.h"
 #include "libft.h"
-#include "base.h"
-#include "printable_mem.h"
+#include "flags.h"
 
-t_printable_mem *convert_unsigned_dec(va_list l, t_flags *f)
+typedef struct s_printable_mem
 {
-	unsigned int		nbr;
+	char	*mem;
+	int	size; // TODO change to size_t
+}	t_printable_mem;
 
-	nbr = va_arg(l, unsigned int);
-	return (convert_generic_unsigned_number(nbr, f, BASE_DEC_STR));
-}
+size_t				cpy_printable_mem(char *d, t_printable_mem *m);
+t_printable_mem	*create_printable_mem(va_list l, t_flags *flags);
+void			free_printable_mem(void *content);
+size_t			count_all_printable_mem_len(t_list *list);
+
+#endif

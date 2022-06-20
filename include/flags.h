@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 11:14:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 08:32:32 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 14:21:42 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ typedef struct s_flags
 	char	pad;
 }	t_flags;
 
-const char	*get_all_flags(const char *s, t_flags *f);
+const char	*get_flags(const char *s, t_flags *f);
 
 #endif

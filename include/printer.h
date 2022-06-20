@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:26:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 11:04:12 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 15:48:30 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include "libft.h"
 
-int	print_all(const char *input, t_list *list, size_t len);
+int	print_all(const char *input, t_list *list);
 
 #endif

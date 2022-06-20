@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:46:08 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 08:34:47 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 14:22:38 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "flags.h"
 #include "ft_printf.h"
 
-const char	*get_flag(const char *s, t_flags *f)
+static const char	*parse_flags(const char *s, t_flags *f)
 {
 	f->pad = ' ';
 	while (ft_strchr(ALL_FLAGS, *s))
@@ -38,7 +38,7 @@ const char	*get_flag(const char *s, t_flags *f)
 	return (s);
 }
 
-const char	*get_width(const char *s, t_flags *f)
+static const char	*get_width(const char *s, t_flags *f)
 {
 	f->width = ft_atoi(s);
 	while (ft_isdigit(*s))
@@ -46,16 +46,16 @@ const char	*get_width(const char *s, t_flags *f)
 	return (s);
 }
 
-const char	*get_conversion(const char *s, t_flags *f)
+static const char	*get_conversion(const char *s, t_flags *f)
 {
 	f->conversion = *s;
 	return (s + 1);
 }
 
-const char	*get_all_flags(const char *s, t_flags *f)
+const char	*get_flags(const char *s, t_flags *f)
 {
 	ft_bzero(f, sizeof(t_flags));
-	s = get_flag(s, f);
+	s = parse_flags(s, f);
 	s = get_width(s, f);
 	s = get_conversion(s, f);
 	return (s);

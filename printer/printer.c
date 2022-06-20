@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:13:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 12:14:08 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 15:44:21 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "parser.h"
 #include "ft_printf.h"
 #include "libft.h"
+#include "printable_mem.h"
 
 static void	cpy_from_input(char **dest, const char **input)
 {
@@ -37,25 +38,16 @@ static void	cpy_from_input(char **dest, const char **input)
 
 static void	cpy_from_list(char **dest, t_list **list)
 {
-	char	*s;
-	char	*d;
 	int		i;
 
 	if (!*list)
 		return ;
-	s = (*list)->content;
-	d = *dest;
-	i = 0;
-	while (i == 0 || s[i]) // TODO did this for char 0
-	{
-		d[i] = s[i];
-		++i;
-	}
+	i = cpy_printable_mem(*dest, (*list)->content);
 	*list = (*list)->next;
-	*dest = (d + i);
+	*dest = (*dest + i);
 }
 
-static char	*create_str_to_print(const char *input, t_list *list, size_t len)
+static char	*create_string(const char *input, t_list *list, size_t len)
 {
 	char	*ret;
 	char	*runner;
@@ -73,14 +65,17 @@ static char	*create_str_to_print(const char *input, t_list *list, size_t len)
 	return (ret);
 }
 
-int	print_all(char *input, t_list *list, size_t len)
+int	print_all(char *input, t_list *list)
 {
 	char	*s;
+	size_t	len;
 
-	s = create_str_to_print(input, list, len);
+	len = count_normal_char_len(input);
+	len += count_all_printable_mem_len(list);
+	s = create_string(input, list, len);
 	if (!s)
 		return (ERROR);
 	write(1, s, len);
 	free(s);
-	return (SUCCESS);
+	return (len);
 }

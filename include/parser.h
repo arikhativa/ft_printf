@@ -6,18 +6,19 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:47:03 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 11:34:14 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 15:41:41 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
 
-# include <stddef.h>
 # include <stdarg.h>
 
-const char	*get_input_data(const char *str, va_list l, void **content, \
-	size_t *len);
+# include "libft.h"
+
 const char	*skip_special_char(const char *s);
+int			parse_input(const char *input, t_list **node, va_list list);
+size_t		count_normal_char_len(const char *s);
 
 #endif

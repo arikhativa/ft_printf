@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 14:05:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 08:37:11 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 15:35:29 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "libft.h"
 #include "flags.h"
+#include "printable_mem.h"
 
 static int	generic_get_size(int w, int l)
 {
@@ -32,17 +33,24 @@ int	generic_get_start(t_flags *f, int len)
 	return (size - len);
 }
 
-char	*generic_create_str(t_flags *f, int len)
+t_printable_mem *generic_create_mem(t_flags *f, int len) // TODO move?
 {
-	int		size;
-	char	*ret;
+	int				size;
+	t_printable_mem *ret;
 
 	size = generic_get_size(f->width, len);
-	ret = (char *)malloc(sizeof(char) * (size + 1));
+	ret = (t_printable_mem *)malloc(sizeof(t_printable_mem));
 	if (ret)
 	{
-		ft_memset(ret, f->pad, size);
-		ret[size] = '\0';
+		ret->mem = (char *)malloc(sizeof(char) * (size + 1));
+		if (!ret->mem)
+		{
+			free(ret);
+			return (NULL);
+		}
+		ft_memset(ret->mem, f->pad, size);
+		ret->mem[size] = '\0';
+		ret->size = size;
 	}
 	return (ret);
 }

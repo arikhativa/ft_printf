@@ -5,7 +5,7 @@
 
 int main()
 {
-	ft_printf("%c\n", 0);
+	ft_printf("%c\n", 's');
 }
 
 int f()

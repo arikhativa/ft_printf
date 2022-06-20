@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 14:03:59 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 15:22:52 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,20 @@ static void	add_pad_if_needed(t_flags *f, size_t start, char *ret)
 		ft_memcpy((ret + start), HEX_MARK_LOWER, ft_strlen(HEX_MARK_LOWER));
 }
 
-void	convert_generic_unsigned_number(\
-					size_t nbr, void **res, t_flags *f, char *base)
+t_printable_mem *convert_generic_unsigned_number(size_t nbr, t_flags *f, char *base)
 {
-	char	*ret;
-	size_t	digit;
-	size_t	start;
-	size_t	pad;
+	t_printable_mem *ret;
+	size_t			digit;
+	size_t			start;
+	size_t			pad;
 
 	digit = count_digit_by_base_unsigned(nbr, ft_strlen(base));
 	pad = get_pad(f);
-	ret = generic_create_str(f, (digit + pad));
+	ret = generic_create_mem(f, (digit + pad));
+	if (!ret)
+		return (NULL);
 	start = generic_get_start(f, (digit + pad));
-	stoa_base(nbr, base, (ret + start + pad), digit);
-	add_pad_if_needed(f, start, ret);
-	*res = ret;
+	stoa_base(nbr, base, (ret->mem + start + pad), digit);
+	add_pad_if_needed(f, start, ret->mem);
+	return (ret);
 }

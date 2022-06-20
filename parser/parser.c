@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 11:55:11 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 15:48:46 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,7 @@
 #include "ft_printf.h"
 #include "converter.h"
 #include "flags.h"
-
-static const char	*ft_strchr_wrapper(const char *s, size_t *len)
-{
-	const char	*tmp;
-
-	tmp = s;
-	while (*s && *s != SEP)
-		++s;
-	*len += (size_t)(s - tmp);
-	return (s);
-}
+#include "list.h"
 
 static int	is_special_char(char c)
 {
@@ -45,39 +35,46 @@ const char	*skip_special_char(const char *s)
 	return (s + 1);
 }
 
-static void	create_content(va_list l, void **content, t_flags *flags, \
-	size_t *len)
+const char	*skip_normal_str(const char *s)
 {
-	if ('c' == flags->conversion)
-		convert_char(l, content, flags, len);
-	else if ('s' == flags->conversion)
-		convert_str(l, content, flags, len);
-	else if ('d' == flags->conversion)
-		convert_dec(l, content, flags, len);
-	else if ('x' == flags->conversion)
-		convert_hax_lower(l, content, flags, len);
-	else if ('X' == flags->conversion)
-		convert_hax_upper(l, content, flags, len);
-	else if ('i' == flags->conversion)
-		convert_dec(l, content, flags, len);
-	else if ('u' == flags->conversion)
-		convert_unsigned_dec(l, content, flags, len);
-	else if ('p' == flags->conversion)
-		convert_ptr(l, content, flags, len);
+	while (*s && *s != SEP)
+		++s;
+	if (*s == SEP)
+		++s;
+	return (s);
 }
 
-const char	*get_input_data(const char *s, va_list l, void **content, size_t *len)
+size_t	count_normal_char_len(const char *s)
+{
+	size_t	c;
+
+	c = 0;
+	while (*s)
+	{
+		if (*s == SEP)
+			s = skip_special_char(s);
+		++c;
+		++s;
+	}
+	return (c);
+}
+
+int	parse_input(const char *input, t_list **node, va_list list)
 {
 	t_flags	flags;
+	t_printable_mem	*m;
 
-	*content = NULL;
-	s = ft_strchr_wrapper(s, len);
-	if (!s || !(*s) || *s != '%')
-		return (s);
-	++s;
-	if (!*s)
-		return (s);
-	s = get_all_flags(s, &flags);
-	create_content(l, content, &flags, len);
-	return (s);
+	m = NULL;
+	input = skip_normal_str(input);
+	while (*input)
+	{
+		input = get_flags(input, &flags);
+		m = create_printable_mem(list, &flags);
+		if (NULL == m)
+			return (ERROR);
+		if (add_param_to_list(node, m) == ERROR)
+			return (ERROR);
+		input = skip_normal_str(input);
+	}
+	return (SUCCESS);
 }

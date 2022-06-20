@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 12:39:34 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 13:57:30 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 15:16:08 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@
 #include "libft.h"
 #include "parser.h"
 #include "generic.h"
+#include "printable_mem.h"
 
-void	create_str(char	*s, void **res, t_flags *f, size_t len)
+t_printable_mem *create_str_to_print(char *s, t_flags *f, size_t len)
 {
-	int		start;
-	char	*new;
+	t_printable_mem *m;
+	int				start;
 
-	new = generic_create_str(f, len);
-	if (new)
+	m = generic_create_mem(f, len);
+	if (m)
 	{
 		start = generic_get_start(f, len);
-		ft_memcpy((new + start), s, len);
+		ft_memcpy((m->mem + start), s, len);
 	}
-	*res = (void *)new;
+	return (m);
 }
 
-void	convert_str(va_list l, void **res, t_flags *f, size_t *len)
+t_printable_mem *convert_str(va_list l, t_flags *f)
 {
 	char	*s;
 
 	s = va_arg(l, char *);
 	f->pad = ' ';
-	*len += ft_strlen(s);
-	create_str(s, res, f, *len);
+	return (create_str_to_print(s, f, ft_strlen(s))); // TODO maybe not right
 }
