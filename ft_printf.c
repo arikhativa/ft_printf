@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 11:18:40 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 11:46:36 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ static int	parse_all_input(const char *input, t_list **node, va_list list, \
 {
 	void	*content;
 
+	content = NULL;
 	while (*input)
 	{
-		if (get_input_data(&input, list, &content, len) == ERROR)
+		input = get_input_data(input, list, &content, len);
+		if (NULL == input)
 			return (ERROR);
 		if (add_param_to_list(node, content, len) == ERROR)
 			return (ERROR);
@@ -52,9 +54,12 @@ int	ft_printf(const char *s, ...)
 	len = 0;
 	va_start(list, s);
 	node = NULL;
-	if (parse_all_input(s, &node, list, &len))
+	stt = parse_all_input(s, &node, list, &len);
+	if (SUCCESS == stt)
 		stt = print_all(s, node, len);
 	ft_lstclear(&node, free_node_content);
 	va_end(list);
+	if (SUCCESS == stt)
+		return (len);
 	return (stt);
 }

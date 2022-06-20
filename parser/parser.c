@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 11:19:37 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 11:33:22 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,26 +65,18 @@ static void	create_content(va_list l, void **content, t_flags *flags)
 		convert_ptr(l, content, flags);
 }
 
-int	get_input_data(const char **str, va_list l, void **content, size_t *len)
+const char	*get_input_data(const char *s, va_list l, void **content, size_t *len)
 {
-	int			stt;
-	const char	*s;
-	t_flags		flags;
+	t_flags	flags;
 
 	*content = NULL;
-	s = ft_strchr_wrapper(*str, len);
+	s = ft_strchr_wrapper(s, len);
 	if (!s || !(*s) || *s != '%')
-		stt = SUCCESS;
-	else
-	{
-		if (*(++s))
-		{
-			s = get_all_flags(s, &flags);
-			create_content(l, content, &flags);
-			if (NULL == *content)
-				stt = ERROR;
-		}
-	}
-	*str = s;
-	return (stt);
+		return (s);
+	++s;
+	if (!*s)
+		return (s);
+	s = get_all_flags(s, &flags);
+	create_content(l, content, &flags);
+	return (s);
 }

@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/19 18:48:52 by yoav             ###   ########.fr        #
+#    Updated: 2022/06/20 11:41:11 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,9 +33,6 @@ AR = ar -rcs
 
 .PHONY: clean fclean re all bonus
 .PRECIOUS: $(SRC) $(HED) $(LIBFT)
-
-t: all
-	gcc -Iinclude test.c $(NAME)
 
 all: $(NAME)
 
