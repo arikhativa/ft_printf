@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ptr.c                                              :+:      :+:    :+:   */
+/*   generic.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 13:57:36 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/19 10:01:54 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/20 13:55:44 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#ifndef GENERIC_H
+# define GENERIC_H
 
-#include "libft.h"
-#include "generic.h"
-#include "ft_printf.h"
-#include "base.h"
+# include <stdarg.h>
+# include <stddef.h>
 
-void	convert_ptr(va_list l, void **res, t_flags *f, size_t *len)
-{
-	void	*p;
+# include "flags.h"
 
-	p = va_arg(l, void *);
-	f->hash = TRUE;
-	convert_generic_unsigned_number((size_t)p, res, f, BASE_HAX_LOWER);
-	if (*res)
-		*len += ft_strlen(*(char **)res);
-}
+int		generic_get_start(t_flags *f, int len);
+char	*generic_create_str(t_flags *f, int len);
+void	convert_generic_number(long nbr, void **res, t_flags *f, char *base);
+void	convert_generic_unsigned_number(\
+						unsigned long nbr, void **res, t_flags *f, char *base);
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 12:39:34 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 12:03:36 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 13:57:30 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "libft.h"
 #include "parser.h"
-#include "converter.h"
+#include "generic.h"
 
 void	create_str(char	*s, void **res, t_flags *f, size_t len)
 {
