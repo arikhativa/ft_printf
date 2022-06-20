@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:23:51 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:47:01 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 15:54:05 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct s_printable_mem
 {
 	char	*mem;
-	int	size; // TODO change to size_t
+	size_t	size;
 }	t_printable_mem;
 
 size_t				cpy_printable_mem(char *d, t_printable_mem *m);

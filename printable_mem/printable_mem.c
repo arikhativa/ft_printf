@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:25:16 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:47:46 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 15:53:24 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,5 @@ size_t	count_all_printable_mem_len(t_list *list)
 		c += m->size;
 		list = list->next;
 	}
+	return (c);
 }

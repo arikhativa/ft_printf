@@ -5,7 +5,7 @@
 
 int main()
 {
-	ft_printf("%c\n", 's');
+	ft_printf("123%c1%c\n", 'c', 'T');
 }
 
 int f()

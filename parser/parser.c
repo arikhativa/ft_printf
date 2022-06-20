@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:48:46 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 15:52:33 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,11 @@ size_t	count_normal_char_len(const char *s)
 	{
 		if (*s == SEP)
 			s = skip_special_char(s);
-		++c;
-		++s;
+		else
+		{
+			++s;
+			++c;
+		}
 	}
 	return (c);
 }

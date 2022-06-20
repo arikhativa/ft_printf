@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:13:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:44:21 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 15:53:32 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int	print_all(char *input, t_list *list)
 
 	len = count_normal_char_len(input);
 	len += count_all_printable_mem_len(list);
+
 	s = create_string(input, list, len);
 	if (!s)
 		return (ERROR);
