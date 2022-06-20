@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:52:27 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 11:06:07 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 11:59:54 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-int	add_param_to_list(t_list **node, void *content, size_t *len)
+int	add_param_to_list(t_list **node, void *content)
 {
 	t_list	*new;
 
@@ -25,6 +25,5 @@ int	add_param_to_list(t_list **node, void *content, size_t *len)
 	if (!new)
 		return (ERROR);
 	ft_lstadd_back(node, new);
-	*len += ft_strlen((char *)content);
 	return (SUCCESS);
 }

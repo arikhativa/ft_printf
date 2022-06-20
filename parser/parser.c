@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 11:33:22 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 11:55:11 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,24 +45,25 @@ const char	*skip_special_char(const char *s)
 	return (s + 1);
 }
 
-static void	create_content(va_list l, void **content, t_flags *flags)
+static void	create_content(va_list l, void **content, t_flags *flags, \
+	size_t *len)
 {
 	if ('c' == flags->conversion)
-		convert_char(l, content, flags);
+		convert_char(l, content, flags, len);
 	else if ('s' == flags->conversion)
-		convert_str(l, content, flags);
+		convert_str(l, content, flags, len);
 	else if ('d' == flags->conversion)
-		convert_dec(l, content, flags);
+		convert_dec(l, content, flags, len);
 	else if ('x' == flags->conversion)
-		convert_hax_lower(l, content, flags);
+		convert_hax_lower(l, content, flags, len);
 	else if ('X' == flags->conversion)
-		convert_hax_upper(l, content, flags);
+		convert_hax_upper(l, content, flags, len);
 	else if ('i' == flags->conversion)
-		convert_dec(l, content, flags);
+		convert_dec(l, content, flags, len);
 	else if ('u' == flags->conversion)
-		convert_unsigned_dec(l, content, flags);
+		convert_unsigned_dec(l, content, flags, len);
 	else if ('p' == flags->conversion)
-		convert_ptr(l, content, flags);
+		convert_ptr(l, content, flags, len);
 }
 
 const char	*get_input_data(const char *s, va_list l, void **content, size_t *len)
@@ -77,6 +78,6 @@ const char	*get_input_data(const char *s, va_list l, void **content, size_t *len
 	if (!*s)
 		return (s);
 	s = get_all_flags(s, &flags);
-	create_content(l, content, &flags);
+	create_content(l, content, &flags, len);
 	return (s);
 }

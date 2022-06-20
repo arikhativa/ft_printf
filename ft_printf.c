@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 11:46:36 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 11:59:46 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	parse_all_input(const char *input, t_list **node, va_list list, \
 		input = get_input_data(input, list, &content, len);
 		if (NULL == input)
 			return (ERROR);
-		if (add_param_to_list(node, content, len) == ERROR)
+		if (add_param_to_list(node, content) == ERROR)
 			return (ERROR);
 	}
 	return (SUCCESS);

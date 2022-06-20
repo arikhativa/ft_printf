@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:13:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 11:06:42 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 12:14:08 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	cpy_from_list(char **dest, t_list **list)
 	s = (*list)->content;
 	d = *dest;
 	i = 0;
-	while (s[i])
+	while (i == 0 || s[i]) // TODO did this for char 0
 	{
 		d[i] = s[i];
 		++i;
