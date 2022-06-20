@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:01:54 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 16:28:47 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 08:03:23 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@
 
 void	convert_char(va_list l, void **res, t_flags *f);
 void	convert_dec(va_list l, void **res, t_flags *f);
+void	convert_unsigned_dec(va_list l, void **res, t_flags *f);
 void	convert_str(va_list l, void **res, t_flags *f);
+void	convert_ptr(va_list l, void **res, t_flags *f);
+
 void	create_str(char	*s, void **res, t_flags *f);
 
 long	count_digit_by_base(long n, long base);

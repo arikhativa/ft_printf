@@ -6,19 +6,20 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:13:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/19 13:16:25 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 08:06:36 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <unistd.h>
 
 #include "parser.h"
 #include "ft_printf.h"
 #include "libft.h"
 
-static void	cpy_from_input(char **dest, char **input)
+static void	cpy_from_input(char **dest, const char **input)
 {
-	char	*s;
+	const char	*s;
 	char	*d;
 	int		i;
 
@@ -54,7 +55,7 @@ static void	cpy_from_list(char **dest, t_list **list)
 	*dest = (d + i);
 }
 
-static char	*create_str_to_print(char *input, t_list *list, size_t len)
+static char	*create_str_to_print(const char *input, t_list *list, size_t len)
 {
 	char	*ret;
 	char	*runner;
@@ -72,13 +73,14 @@ static char	*create_str_to_print(char *input, t_list *list, size_t len)
 	return (ret);
 }
 
-int	print_all(char *input, t_list *list, size_t len)
+void	print_all(char *input, t_list *list, size_t len)
 {
 	char	*s;
 	
 	s = create_str_to_print(input, list, len);
-	if (!s)
-		return (ERROR);
-	write(1, s, len);
-	free(s);
+	if (s)
+	{
+		write(1, s, len);
+		free(s);
+	}
 }

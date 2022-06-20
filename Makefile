@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/19 12:35:14 by yoav             ###   ########.fr        #
+#    Updated: 2022/06/19 18:48:52 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,7 @@ BONUS_OBJ = $(BONUS_SRC:.c=.o)
 LIBFT = libft
 
 CC = gcc
-CFLAGS = -c -I$(HED) -Ilibft
-# CFLAGS = -Wall -Werror -Wextra -c -I$(HED) -Ilibft
+CFLAGS = -Wall -Werror -Wextra -c -I$(HED) -Ilibft
 RM = rm -f
 AR = ar -rcs
 
