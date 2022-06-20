@@ -6,13 +6,16 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 08:37:18 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 14:04:03 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "converter.h"
+#include "generic.h"
+#include "count.h"
 #include "base.h"
+#include "flags.h"
 
 static int	is_pad(t_flags *f, long nbr)
 {

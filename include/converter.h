@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:01:54 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 13:56:24 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 14:00:02 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ void	convert_hax_upper(va_list l, void **res, t_flags *f, size_t *len);
 void	convert_hax_lower(va_list l, void **res, t_flags *f, size_t *len);
 
 void	create_str(char	*s, void **res, t_flags *f, size_t len);
-long	count_digit_by_base(long n, long base);
 void	itoa_base(long n, char *base_str, char *ret, int digit);
 void	stoa_base(size_t n, char *base_str, char *ret, size_t digit);
-long	count_digit_by_base_unsigned(size_t n, long base);
 
 #endif

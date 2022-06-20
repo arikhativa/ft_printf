@@ -6,12 +6,14 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 08:36:50 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/20 14:03:59 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "converter.h"
+#include "count.h"
+#include "generic.h"
 #include "base.h"
 
 static int	get_pad(t_flags *f)

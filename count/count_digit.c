@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stoa_base.c                                        :+:      :+:    :+:   */
+/*   count_digit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 13:47:44 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 13:59:27 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/20 13:59:32 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/20 14:03:04 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-#include "libft.h"
-
-static void	rec(size_t n, size_t base, char *base_str, char *ret)
+long	count_digit_by_base(long n, long base)
 {
-	if (n / base)
+	long	ret;
+
+	ret = 0;
+	if (n == 0)
+		return (1);
+	while (n)
 	{
-		rec(n / base, base, base_str, ret - 1);
-		rec(n % base, base, base_str, ret);
+		n /= base;
+		++ret;
 	}
-	if (n < base)
-		*ret = base_str[n];
+	return (ret);
 }
 
-void	stoa_base(size_t n, char *base_str, char *ret, size_t digit)
+size_t	count_digit_by_base_unsigned(size_t n, size_t base)
 {
-	size_t	base;
+	size_t	ret;
 
-	base = (size_t)ft_strlen(base_str);
-	rec(n, base, base_str, (ret + digit - 1));
+	ret = 0;
+	if (n == 0)
+		return (1);
+	while (n)
+	{
+		n /= base;
+		++ret;
+	}
+	return (ret);
 }

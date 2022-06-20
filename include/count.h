@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   itoa_base.c                                        :+:      :+:    :+:   */
+/*   count.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 13:47:44 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 13:59:41 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/20 14:00:11 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/20 14:04:15 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef COUNT_H
+# define COUNT_H
 
-static void	rec(long n, long base, char *base_str, char *ret)
-{
-	if (n / base)
-	{
-		rec(n / base, base, base_str, ret - 1);
-		rec(n % base, base, base_str, ret);
-	}
-	if (n < base)
-		*ret = base_str[n];
-}
+long	count_digit_by_base(long n, long base);
+long	count_digit_by_base_unsigned(size_t n, long base);
 
-void	itoa_base(long n, char *base_str, char *ret, int digit)
-{
-	long	base;
-
-	base = (long)ft_strlen(base_str);
-	if (0 > n)
-		n *= -1;
-	rec(n, base, base_str, (ret + digit - 1));
-}
+#endif

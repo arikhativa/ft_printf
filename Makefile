@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/20 13:56:52 by yoav             ###   ########.fr        #
+#    Updated: 2022/06/20 14:00:56 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ SRC = \
 	$(wildcard list/*.c) \
 	$(wildcard converter/*.c) \
 	$(wildcard parser/*.c) \
+	$(wildcard generic/*.c) \
 	$(wildcard printer/*.c) \
+	$(wildcard count/*.c) \
 	ft_printf.c
 
 BONUS_SRC = no.c
