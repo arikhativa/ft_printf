@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:52:33 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/21 09:35:57 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,16 @@
 #include "converter.h"
 #include "flags.h"
 #include "list.h"
+#include "parser.h"
 
-static int	is_special_char(char c)
+static int	is_convert_char(char c)
 {
-	char *all_chars = "cspdiuxX"; // TODO not sure about %
-
-	return (ft_strchr(all_chars, c) != NULL);
+	return (ft_strchr(CONVERT_STR, c) != NULL);
 }
 
 const char	*skip_special_char(const char *s)
 {
-	while (*s && !is_special_char(*s))
+	while (*s && !is_convert_char(*s))
 		++s;
 	if (!*s)
 		return (s);
@@ -37,9 +36,13 @@ const char	*skip_special_char(const char *s)
 
 const char	*skip_normal_str(const char *s)
 {
-	while (*s && *s != SEP)
+	while (*s && !is_sep(s))
+	{
+		if (is_escp(s))
+			++s;
 		++s;
-	if (*s == SEP)
+	}
+	if (is_sep(s))
 		++s;
 	return (s);
 }
@@ -51,8 +54,13 @@ size_t	count_normal_char_len(const char *s)
 	c = 0;
 	while (*s)
 	{
-		if (*s == SEP)
+		if (is_sep(s))
 			s = skip_special_char(s);
+		else if (is_escp(s))
+		{
+			s += 2;
+			++c;
+		}
 		else
 		{
 			++s;

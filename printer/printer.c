@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:13:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:53:32 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/21 09:26:25 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,12 @@ static void	cpy_from_input(char **dest, const char **input)
 	s = *input;
 	d = *dest;
 	i = 0;
-	while (s[i] && s[i] != SEP)
+	while (s[i])
 	{
+		if (is_sep(s + i))
+			break ;
+		if (is_escp(s + i))
+			++s;
 		d[i] = s[i];
 		++i;
 	}
