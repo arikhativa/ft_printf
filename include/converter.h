@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:01:54 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:18:25 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/21 09:57:19 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 
 # include "flags.h"
 # include "printable_mem.h"
+
+# define NULL_STR	"(null)"
+# define NIL_STR	"(nil)"
 
 t_printable_mem	*convert_char(va_list l, t_flags *f);
 t_printable_mem	*convert_dec(va_list l, t_flags *f);

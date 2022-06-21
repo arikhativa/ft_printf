@@ -7,11 +7,15 @@ int f()
 {
 	int m;
 	int r;
+	char	*s = "'%p\n'";
+	char	*v = 0;
 
-	r = printf("'%%%% %c %c %c '\n", 0, 0, '1');
-	m = ft_printf("'%%%% %c %c %c '\n",0, 0, '1');
+	printf("Real: \n");
+	r = printf(s, v);
+	printf("Me: \n");
+	m = ft_printf(s, v);
 
-	printf("ret: M: %d R: %d\n", m, r);
+	printf("\nret: M: %d R: %d\n", m, r);
 }
 
 int main()
