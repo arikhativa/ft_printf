@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:25:16 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:53:24 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/21 14:05:59 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "converter.h"
 #include "printable_mem.h"
 
-t_printable_mem *create_printable_mem(va_list l, t_flags *flags)
+t_printable_mem	*create_printable_mem(va_list l, t_flags *flags)
 {
 	if ('c' == flags->conversion)
 		return (convert_char(l, flags));
@@ -56,7 +56,7 @@ size_t	cpy_printable_mem(char *d, t_printable_mem *m)
 
 void	free_printable_mem(void *content)
 {
-	t_printable_mem *m;
+	t_printable_mem	*m;
 
 	m = (t_printable_mem *)content;
 	free(m->mem);
@@ -67,7 +67,7 @@ void	free_printable_mem(void *content)
 
 size_t	count_all_printable_mem_len(t_list *list)
 {
-	t_printable_mem *m;
+	t_printable_mem	*m;
 	size_t			c;
 
 	c = 0;

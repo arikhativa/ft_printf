@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:52:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:16:08 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/21 14:04:24 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "converter.h"
 #include "printable_mem.h"
 
-t_printable_mem *convert_char(va_list l, t_flags *f)
+t_printable_mem	*convert_char(va_list l, t_flags *f)
 {
 	char	s[2];
 

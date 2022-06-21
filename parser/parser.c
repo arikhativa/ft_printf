@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/21 09:35:57 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/21 14:04:42 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ size_t	count_normal_char_len(const char *s)
 
 int	parse_input(const char *input, t_list **node, va_list list)
 {
-	t_flags	flags;
+	t_flags			flags;
 	t_printable_mem	*m;
 
 	m = NULL;

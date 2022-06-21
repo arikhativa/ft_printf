@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:22:52 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/21 14:07:03 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ static void	add_pad_if_needed(t_flags *f, size_t start, char *ret)
 		ft_memcpy((ret + start), HEX_MARK_LOWER, ft_strlen(HEX_MARK_LOWER));
 }
 
-t_printable_mem *convert_generic_unsigned_number(size_t nbr, t_flags *f, char *base)
+t_printable_mem	*convert_generic_unsigned_number(size_t nbr, t_flags *f, \
+													char *base)
 {
-	t_printable_mem *ret;
+	t_printable_mem	*ret;
 	size_t			digit;
 	size_t			start;
 	size_t			pad;

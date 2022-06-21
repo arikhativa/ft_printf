@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:01:54 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/21 09:57:19 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/21 14:03:22 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_printable_mem	*convert_ptr(va_list l, t_flags *f);
 t_printable_mem	*convert_hax_upper(va_list l, t_flags *f);
 t_printable_mem	*convert_hax_lower(va_list l, t_flags *f);
 
-t_printable_mem *create_str_to_print(char *s, t_flags *f, size_t len);
+t_printable_mem	*create_str_to_print(char *s, t_flags *f, size_t len);
 void			itoa_base(long n, char *base_str, char *ret, int digit);
 void			stoa_base(size_t n, char *base_str, char *ret, size_t digit);
 

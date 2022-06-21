@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 14:05:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:35:29 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/21 14:07:27 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	generic_get_start(t_flags *f, int len)
 	return (size - len);
 }
 
-t_printable_mem *generic_create_mem(t_flags *f, int len) // TODO move?
+t_printable_mem	*generic_create_mem(t_flags *f, int len) // TODO move?
 {
 	int				size;
-	t_printable_mem *ret;
+	t_printable_mem	*ret;
 
 	size = generic_get_size(f->width, len);
 	ret = (t_printable_mem *)malloc(sizeof(t_printable_mem));

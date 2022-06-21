@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 15:23:38 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/21 14:05:13 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	add_pad_if_needed(t_flags *f, long nbr, int start, char *ret)
 		ret[start] = ' ';
 }
 
-t_printable_mem *convert_generic_number(long nbr, t_flags *f, char *base)
+t_printable_mem	*convert_generic_number(long nbr, t_flags *f, char *base)
 {
 	t_printable_mem	*ret;
 	int				digit;
