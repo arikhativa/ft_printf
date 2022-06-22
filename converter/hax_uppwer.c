@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/21 14:04:16 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/22 09:44:11 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ t_printable_mem	*convert_hax_upper(va_list l, t_flags *f)
 
 	nbr = va_arg(l, unsigned int);
 	f->is_upper = TRUE;
+	if (0 == nbr)
+		f->hash = 0;
 	return (convert_generic_unsigned_number(nbr, f, BASE_HAX_UPPER));
 }

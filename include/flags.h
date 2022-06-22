@@ -6,14 +6,14 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 11:14:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 14:21:42 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/22 10:11:31 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FLAGS_H
 # define FLAGS_H
 
-# define ALL_FLAGS	"-0.# +"
+# define ALL_FLAGS	"-0# +"
 
 typedef struct s_flags
 {
@@ -28,6 +28,7 @@ typedef struct s_flags
 	char	pad;
 }	t_flags;
 
+const char	*parse_flags(const char *s, t_flags *f);
 const char	*get_flags(const char *s, t_flags *f);
 
 #endif

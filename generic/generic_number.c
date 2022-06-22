@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/21 14:05:13 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/22 09:30:41 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static int	is_pad(t_flags *f, long nbr)
 
 static void	add_pad_if_needed(t_flags *f, long nbr, int start, char *ret)
 {
+	if ('0' == f->pad)
+		start = 0;
 	if (0 > nbr)
 		ret[start] = '-';
 	else if (f->plus)

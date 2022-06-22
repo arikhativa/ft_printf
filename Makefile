@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/21 09:48:44 by yoav             ###   ########.fr        #
+#    Updated: 2022/06/22 10:12:04 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,8 +49,7 @@ $(NAME): $(OBJ) $(HED) Makefile
 	cp $(LIBFT)/libft.a $(NAME)
 	$(AR) $(NAME) $(OBJ)
 
-bonus: $(BONUS_OBJ) $(OBJ) $(HED) Makefile 
-	$(AR) $(NAME) $(OBJ) $(BONUS_OBJ)
+bonus: $(NAME) 
 
 clean:
 	$(MAKE) clean -C ./libft
