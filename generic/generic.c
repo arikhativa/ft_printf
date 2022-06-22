@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 14:05:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/22 12:36:55 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/22 16:01:10 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 #include "flags.h"
 #include "printable_mem.h"
 
+size_t	get_smaller(size_t a, size_t b)
+{
+	if (a > b)
+		return (b);
+	return (a);
+}
+
 size_t	get_bigger(size_t a, size_t b)
 {
 	if (a > b)
@@ -23,12 +30,12 @@ size_t	get_bigger(size_t a, size_t b)
 	return (b);
 }
 
-size_t	generic_get_start(t_flags *f, size_t mem_size, size_t value_len)
+size_t	generic_get_start(t_flags *f, size_t mem_size, size_t digit, size_t pad)
 {
 	if (f->left_adjusted)
 		return (0);
-	value_len = get_bigger(f->precision_value, value_len);
-	return (mem_size - value_len);
+	digit = get_bigger(f->precision_value, digit);
+	return (mem_size - digit - pad);
 }
 
 t_printable_mem	*generic_create_mem(t_flags *f, size_t size) // TODO move?
@@ -50,3 +57,27 @@ t_printable_mem	*generic_create_mem(t_flags *f, size_t size) // TODO move?
 	}
 	return (ret);
 }
+
+size_t	get_size_for_number(t_flags *f, size_t digit, size_t pad)
+{
+	size_t	size;
+
+	size = get_bigger(f->width, (digit + pad));
+	size = get_bigger((f->precision_value + pad), size);
+	return (size);
+}
+
+
+size_t	add_precision_pad(char *ret, size_t pos, t_flags *f, size_t nbr_len)
+{
+	size_t	i;
+
+	i = 0;
+	while (f->precision_value > (nbr_len + i))
+	{
+		ret[pos + i] = '0';
+		++i;
+	}
+	return (pos + i);
+}
+

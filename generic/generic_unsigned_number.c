@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/22 12:33:02 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/22 15:56:32 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,22 @@ static int	get_pad(t_flags *f)
 	return (0);
 }
 
-static void	add_pad_if_needed(t_flags *f, size_t start, char *ret)
+static size_t	add_pad_if_needed(t_flags *f, size_t start, char *ret)
 {
+	size_t	len;
+
+	len = 0;
 	if (f->hash && f->is_upper)
-		ft_memcpy((ret + start), HEX_MARK_UPPER, ft_strlen(HEX_MARK_UPPER));
+	{
+		len = ft_strlen(HEX_MARK_UPPER);
+		ft_memcpy((ret + start), HEX_MARK_UPPER, len);
+	}
 	else if (f->hash)
-		ft_memcpy((ret + start), HEX_MARK_LOWER, ft_strlen(HEX_MARK_LOWER));
+	{
+		len = ft_strlen(HEX_MARK_LOWER);
+		ft_memcpy((ret + start), HEX_MARK_LOWER, len);
+	}
+	return (start + len);
 }
 
 t_printable_mem	*convert_generic_unsigned_number(size_t nbr, t_flags *f, \
@@ -36,16 +46,19 @@ t_printable_mem	*convert_generic_unsigned_number(size_t nbr, t_flags *f, \
 {
 	t_printable_mem	*ret;
 	size_t			digit;
-	size_t			start;
+	size_t			i;
 	size_t			pad;
+	size_t			size;
 
 	digit = count_digit_by_base_unsigned(nbr, ft_strlen(base));
 	pad = get_pad(f);
-	ret = generic_create_mem(f, (digit + pad));
+	size = get_size_for_number(f, digit, pad);
+	ret = generic_create_mem(f, size);
 	if (!ret)
 		return (NULL);
-	// start = generic_get_start(f, (digit + pad));
-	stoa_base(nbr, base, (ret->mem + start + pad), digit);
-	add_pad_if_needed(f, start, ret->mem);
+	i = generic_get_start(f, size, digit, pad);
+	i = add_pad_if_needed(f, i, ret->mem);
+	i = add_precision_pad(ret->mem, i, f, digit);
+	stoa_base(nbr, base, (ret->mem + i), digit);
 	return (ret);
 }
