@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:46:08 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/22 10:11:40 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/22 11:21:02 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static const char *get_precision(const char *s, t_flags *f)
 	if ('.' == *s)
 	{
 		++s;
-		f->precision = ft_atoi(s);
+		f->is_precision = TRUE;
+		f->precision_value = (size_t)ft_atoi(s); // TODO mybe not atoi
 		while (ft_isdigit(*s))
 			++s;
 	}

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/21 14:07:03 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/22 12:33:02 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_printable_mem	*convert_generic_unsigned_number(size_t nbr, t_flags *f, \
 	ret = generic_create_mem(f, (digit + pad));
 	if (!ret)
 		return (NULL);
-	start = generic_get_start(f, (digit + pad));
+	// start = generic_get_start(f, (digit + pad));
 	stoa_base(nbr, base, (ret->mem + start + pad), digit);
 	add_pad_if_needed(f, start, ret->mem);
 	return (ret);

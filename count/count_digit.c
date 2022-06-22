@@ -6,15 +6,15 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 13:59:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 14:03:04 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/22 11:30:12 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-long	count_digit_by_base(long n, long base)
+size_t	count_digit_by_base(long n, long base)
 {
-	long	ret;
+	size_t	ret;
 
 	ret = 0;
 	if (n == 0)
