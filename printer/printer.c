@@ -6,14 +6,14 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:13:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/21 14:04:34 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:23:08 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "parser.h"
+#include "input.h"
 #include "ft_printf.h"
 #include "libft.h"
 #include "printable_mem.h"

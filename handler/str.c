@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 12:39:34 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:17:38 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:23:08 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "flag.h"
 #include "libft.h"
-#include "parser.h"
+#include "input.h"
 #include "generic.h"
 #include "printable_mem.h"
 #include "handler.h"

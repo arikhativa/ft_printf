@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/23 16:12:25 by yoav             ###   ########.fr        #
+#    Updated: 2022/06/23 16:23:29 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC = \
 	$(wildcard handler/*.c) \
 	$(wildcard list/*.c) \
 	$(wildcard convert/*.c) \
-	$(wildcard parser/*.c) \
+	$(wildcard input/*.c) \
 	$(wildcard generic/*.c) \
 	$(wildcard printer/*.c) \
 	$(wildcard flag/*.c) \
