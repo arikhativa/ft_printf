@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:28:15 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 17:00:28 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 
 #include "libft.h"
-#include "ft_printf.h"
+#include "define.h"
 #include "list.h"
 #include "input.h"
 #include "print.h"

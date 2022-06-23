@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printer.c                                          :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:13:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:23:08 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:57:03 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
 
+#include "flag.h"
 #include "input.h"
-#include "ft_printf.h"
+#include "define.h"
 #include "libft.h"
 #include "printable_mem.h"
 
@@ -37,7 +38,7 @@ static void	cpy_from_input(char **dest, const char **input)
 		++i;
 	}
 	*dest = (d + i);
-	*input = skip_special_char(s + i);
+	*input = skip_flag(s + i);
 }
 
 static void	cpy_from_list(char **dest, t_list **list)

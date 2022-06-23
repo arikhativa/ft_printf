@@ -12,7 +12,21 @@
 
 #include "libft.h"
 #include "flag.h"
-#include "ft_printf.h"
+#include "define.h"
+
+int	is_handler_char(char c)
+{
+	return (ft_strchr(CONVERT_STR, c) != NULL);
+}
+
+const char	*skip_flag(const char *s)
+{
+	while (*s && !is_handler_char(*s))
+		++s;
+	if (!*s)
+		return (s);
+	return (s + 1);
+}
 
 const char	*parse_flag(const char *s, t_flag *f)
 {

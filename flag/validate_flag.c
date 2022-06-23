@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count.h                                            :+:      :+:    :+:   */
+/*   validate_flag.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 14:00:11 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:39:56 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/23 16:45:05 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/23 17:00:03 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COUNT_H
-# define COUNT_H
+#include "libft.h"
+#include "flag.h"
+#include "define.h"
 
-# include <stddef.h>
-
-size_t	count_digit_by_base(long n, size_t base);
-size_t	count_digit_by_base_unsigned(size_t n, size_t base);
-
-#endif
+int	is_flag_valid(const char *s)
+{
+	if (!s || *s)
+		return (FALSE);
+	while (ft_strchr(ALL_FLAGS, *s))
+		++s;
+	while (ft_isdigit(*s))
+		++s;
+	if (*s == '.')
+	{
+		++s;
+		while (ft_isdigit(*s))
+			++s;
+	}
+	return (is_handler_char(*s));
+}

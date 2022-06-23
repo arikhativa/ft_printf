@@ -6,13 +6,13 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:52:27 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 11:59:54 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:48:47 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-#include "ft_printf.h"
+#include "define.h"
 #include "libft.h"
 
 int	add_param_to_list(t_list **node, void *content)

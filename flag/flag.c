@@ -12,7 +12,7 @@
 
 #include "libft.h"
 #include "flag.h"
-#include "ft_printf.h"
+#include "define.h"
 
 static const char	*get_width(const char *s, t_flag *f)
 {
@@ -36,7 +36,7 @@ static const char *get_precision(const char *s, t_flag *f)
 	{
 		++s;
 		f->is_precision = TRUE;
-		f->precision_value = (size_t)ft_atoi(s); // TODO mybe not atoi
+		f->precision_value = ft_atoi(s); // TODO mybe not atoi
 		while (ft_isdigit(*s))
 			++s;
 	}

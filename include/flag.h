@@ -13,7 +13,9 @@
 #ifndef FLAG_H
 # define FLAG_H
 
-# define ALL_FLAGS		"-0# +"
+# include <stddef.h>
+
+# define ALL_FLAGS	"-0# +"
 
 typedef struct s_flag
 {
@@ -31,5 +33,7 @@ typedef struct s_flag
 
 const char	*parse_flag(const char *s, t_flag *f);
 const char	*get_flag(const char *s, t_flag *f);
+const char	*skip_flag(const char *s);
+int			is_handler_char(char c);
 
 #endif

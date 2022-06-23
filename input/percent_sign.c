@@ -6,11 +6,11 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 09:04:31 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:23:08 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:49:02 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "define.h"
 #include "input.h"
 
 int	is_escp(const char *s)

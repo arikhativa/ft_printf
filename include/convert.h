@@ -15,7 +15,7 @@
 
 # include <stddef.h>
 
-void			itoa_base(long n, char *base_str, char *ret, int digit);
+void			itoa_base(long n, char *base_str, char *ret, size_t digit);
 void			stoa_base(size_t n, char *base_str, char *ret, size_t digit);
 
 #endif

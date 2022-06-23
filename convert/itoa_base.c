@@ -6,9 +6,11 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 13:47:44 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/20 13:59:41 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:40:09 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 #include "libft.h"
 
@@ -23,7 +25,7 @@ static void	rec(long n, long base, char *base_str, char *ret)
 		*ret = base_str[n];
 }
 
-void	itoa_base(long n, char *base_str, char *ret, int digit)
+void	itoa_base(long n, char *base_str, char *ret, size_t digit)
 {
 	long	base;
 

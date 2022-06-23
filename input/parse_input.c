@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:37:18 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:57:45 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,11 @@
 #include <stdarg.h>
 
 #include "libft.h"
-#include "ft_printf.h"
+#include "define.h"
 #include "printable_mem.h"
 #include "flag.h"
 #include "list.h"
 #include "input.h"
-
-static int	is_handler_char(char c)
-{
-	return (ft_strchr(CONVERT_STR, c) != NULL);
-}
-
-const char	*skip_special_char(const char *s)
-{
-	while (*s && !is_handler_char(*s))
-		++s;
-	if (!*s)
-		return (s);
-	return (s + 1);
-}
 
 const char	*skip_normal_str(const char *s)
 {
@@ -55,7 +41,7 @@ size_t	count_normal_char_len(const char *s)
 	while (*s)
 	{
 		if (is_sep(s))
-			s = skip_special_char(s);
+			s = skip_flag(s);
 		else if (is_escp(s))
 		{
 			s += 2;

@@ -17,12 +17,8 @@
 
 # include "libft.h"
 
-# define SEP_CHAR		'%'
-# define CONVERT_STR	"cspdiuxX"
-
 int			is_escp(const char *s);
 int			is_sep(const char *s);
-const char	*skip_special_char(const char *s);
 int			parse_input(const char *input, t_list **node, va_list list);
 size_t		count_normal_char_len(const char *s);
 
