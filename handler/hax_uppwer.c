@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:11:57 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:36:01 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "base.h"
 #include "printable_mem.h"
 
-t_printable_mem	*convert_hax_upper(va_list l, t_flag *f)
+t_printable_mem	*handle_hax_upper(va_list l, t_flag *f)
 {
 	unsigned int		nbr;
 
@@ -26,5 +26,5 @@ t_printable_mem	*convert_hax_upper(va_list l, t_flag *f)
 	f->is_upper = TRUE;
 	if (0 == nbr)
 		f->hash = 0;
-	return (convert_generic_unsigned_number(nbr, f, BASE_HAX_UPPER));
+	return (convert_generic_unsigned_number(nbr, f, BASE_HAX_UPPER_STR));
 }

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:11:57 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:35:49 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "base.h"
 #include "printable_mem.h"
 
-t_printable_mem	*convert_unsigned_dec(va_list l, t_flag *f)
+t_printable_mem	*handle_unsigned_dec(va_list l, t_flag *f)
 {
 	unsigned int		nbr;
 

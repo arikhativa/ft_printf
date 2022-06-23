@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:52:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:17:01 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:36:27 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <stdlib.h>
 
 #include "flag.h"
-#include "convert.h"
+#include "handler.h"
 #include "printable_mem.h"
 
-t_printable_mem	*convert_char(va_list l, t_flag *f)
+t_printable_mem	*handle_char(va_list l, t_flag *f)
 {
 	char	s[2];
 

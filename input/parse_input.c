@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:23:08 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:37:18 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 #include "libft.h"
 #include "ft_printf.h"
-#include "convert.h"
+#include "printable_mem.h"
 #include "flag.h"
 #include "list.h"
 #include "input.h"
 
-static int	is_convert_char(char c)
+static int	is_handler_char(char c)
 {
 	return (ft_strchr(CONVERT_STR, c) != NULL);
 }
 
 const char	*skip_special_char(const char *s)
 {
-	while (*s && !is_convert_char(*s))
+	while (*s && !is_handler_char(*s))
 		++s;
 	if (!*s)
 		return (s);

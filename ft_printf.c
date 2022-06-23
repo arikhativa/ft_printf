@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:05:26 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:23:08 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:28:15 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "ft_printf.h"
 #include "list.h"
 #include "input.h"
-#include "printer.h"
+#include "print.h"
 #include "printable_mem.h"
 
 int	ft_printf(const char *s, ...)
