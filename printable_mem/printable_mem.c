@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:25:16 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/22 11:18:59 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:16:39 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 #include <stdlib.h>
 
 #include "libft.h"
-#include "flags.h"
-#include "converter.h"
+#include "flag.h"
+#include "handler.h"
 #include "printable_mem.h"
 
-t_printable_mem	*create_printable_mem(va_list l, t_flags *flags)
+t_printable_mem	*create_printable_mem(va_list l, t_flag *flag)
 {
-	if ('c' == flags->conversion)
-		return (convert_char(l, flags));
-	else if ('s' == flags->conversion)
-		return (convert_str(l, flags));
-	else if ('d' == flags->conversion)
-		return (convert_dec(l, flags));
-	else if ('x' == flags->conversion)
-		return (convert_hax_lower(l, flags));
-	else if ('X' == flags->conversion)
-		return (convert_hax_upper(l, flags));
-	else if ('i' == flags->conversion)
-		return (convert_dec(l, flags));
-	else if ('u' == flags->conversion)
-		return (convert_unsigned_dec(l, flags));
-	else if ('p' == flags->conversion)
-		return (convert_ptr(l, flags));
+	if ('c' == flag->conversion)
+		return (convert_char(l, flag));
+	else if ('s' == flag->conversion)
+		return (convert_str(l, flag));
+	else if ('d' == flag->conversion)
+		return (convert_dec(l, flag));
+	else if ('x' == flag->conversion)
+		return (convert_hax_lower(l, flag));
+	else if ('X' == flag->conversion)
+		return (convert_hax_upper(l, flag));
+	else if ('i' == flag->conversion)
+		return (convert_dec(l, flag));
+	else if ('u' == flag->conversion)
+		return (convert_unsigned_dec(l, flag));
+	else if ('p' == flag->conversion)
+		return (convert_ptr(l, flag));
 	return (NULL);
 }
 

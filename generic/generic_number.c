@@ -6,26 +6,28 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 11:14:59 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:13:08 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
+
 #include "libft.h"
-#include "converter.h"
+#include "convert.h"
 #include "generic.h"
 #include "count.h"
 #include "base.h"
 #include "printable_mem.h"
-#include "flags.h"
+#include "flag.h"
 
-static int	is_pad(t_flags *f, long nbr, size_t digit)
+static int	is_pad(t_flag *f, long nbr)
 {
 	if (f->plus || f->space || (0 > nbr))
 		return (1);
 	return (0);
 }
 
-static size_t	add_pad_if_needed(t_flags *f, long nbr, size_t start, char *ret)
+static size_t	add_pad_if_needed(t_flag *f, long nbr, size_t start, char *ret)
 {
 	size_t	i;
 
@@ -50,7 +52,7 @@ static size_t	add_pad_if_needed(t_flags *f, long nbr, size_t start, char *ret)
 	return (start);
 }
 
-t_printable_mem	*convert_generic_number(long nbr, t_flags *f, char *base)
+t_printable_mem	*convert_generic_number(long nbr, t_flag *f, char *base)
 {
 	t_printable_mem	*ret;
 	size_t			digit;
@@ -59,7 +61,7 @@ t_printable_mem	*convert_generic_number(long nbr, t_flags *f, char *base)
 	size_t			size;
 
 	digit = count_digit_by_base(nbr, ft_strlen(base));
-	pad = is_pad(f, nbr, digit);
+	pad = is_pad(f, nbr);
 	size = get_size_for_number(f, digit, pad);
 	ret = generic_create_mem(f, size);
 	if (!ret)

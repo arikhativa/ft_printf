@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/22 09:57:42 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:17:01 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 #include "libft.h"
 #include "ft_printf.h"
-#include "converter.h"
-#include "flags.h"
+#include "convert.h"
+#include "flag.h"
 #include "list.h"
 #include "parser.h"
 
@@ -72,15 +72,15 @@ size_t	count_normal_char_len(const char *s)
 
 int	parse_input(const char *input, t_list **node, va_list list)
 {
-	t_flags			flags;
+	t_flag			flag;
 	t_printable_mem	*m;
 
 	m = NULL;
 	input = skip_normal_str(input);
 	while (*input)
 	{
-		input = get_flags(input, &flags);
-		m = create_printable_mem(list, &flags);
+		input = get_flag(input, &flag);
+		m = create_printable_mem(list, &flag);
 		if (NULL == m)
 			return (ERROR);
 		if (add_param_to_list(node, m) == ERROR)

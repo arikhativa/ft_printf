@@ -6,24 +6,24 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/22 15:56:32 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:11:57 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "converter.h"
+#include "convert.h"
 #include "count.h"
 #include "generic.h"
 #include "base.h"
 
-static int	get_pad(t_flags *f)
+static int	get_pad(t_flag *f)
 {
 	if (f->hash)
 		return (2);
 	return (0);
 }
 
-static size_t	add_pad_if_needed(t_flags *f, size_t start, char *ret)
+static size_t	add_pad_if_needed(t_flag *f, size_t start, char *ret)
 {
 	size_t	len;
 
@@ -41,7 +41,7 @@ static size_t	add_pad_if_needed(t_flags *f, size_t start, char *ret)
 	return (start + len);
 }
 
-t_printable_mem	*convert_generic_unsigned_number(size_t nbr, t_flags *f, \
+t_printable_mem	*convert_generic_unsigned_number(size_t nbr, t_flag *f, \
 													char *base)
 {
 	t_printable_mem	*ret;

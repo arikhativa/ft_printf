@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printable_mem.h                                    :+:      :+:    :+:   */
+/*   hundler.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 14:23:51 by yoav              #+#    #+#             */
+/*   Created: 2022/06/23 16:10:20 by yoav              #+#    #+#             */
 /*   Updated: 2022/06/23 16:11:57 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTABLE_MEM_H
-# define PRINTABLE_MEM_H
+#ifndef HUNDLER_H
+# define HUNDLER_H
 
-# include <stddef.h>
 # include <stdarg.h>
 
-# include "libft.h"
+# include "printable_mem.h"
 # include "flag.h"
 
-typedef struct s_printable_mem
-{
-	char	*mem;
-	size_t	size;
-}	t_printable_mem;
+# define NULL_STR	"(null)"
+# define NIL_STR	"(nil)"
 
-size_t			cpy_printable_mem(char *d, t_printable_mem *m);
-t_printable_mem	*create_printable_mem(va_list l, t_flag *flag);
-void			free_printable_mem(void *content);
-size_t			count_all_printable_mem_len(t_list *list);
+t_printable_mem	*convert_char(va_list l, t_flag *f);
+t_printable_mem	*convert_dec(va_list l, t_flag *f);
+t_printable_mem	*convert_unsigned_dec(va_list l, t_flag *f);
+t_printable_mem	*convert_str(va_list l, t_flag *f);
+t_printable_mem	*convert_ptr(va_list l, t_flag *f);
+t_printable_mem	*convert_hax_upper(va_list l, t_flag *f);
+t_printable_mem	*convert_hax_lower(va_list l, t_flag *f);
 
 #endif

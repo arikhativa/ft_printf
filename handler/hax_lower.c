@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_flags.c                                      :+:      :+:    :+:   */
+/*   hax_lower.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 10:08:57 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/22 10:11:42 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/23 16:11:57 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "flags.h"
-#include "ft_printf.h"
+#include <stdarg.h>
 
-const char	*parse_flags(const char *s, t_flags *f)
+#include "generic.h"
+#include "libft.h"
+#include "base.h"
+#include "printable_mem.h"
+
+t_printable_mem	*convert_hax_lower(va_list l, t_flag *f)
 {
-	f->pad = ' ';
-	while (ft_strchr(ALL_FLAGS, *s))
-	{
-		if (' ' == *s)
-			f->space = TRUE;
-		else if ('#' == *s)
-			f->hash = TRUE;
-		else if ('0' == *s)
-			f->pad = '0';
-		else if ('+' == *s)
-			f->plus = TRUE;
-		else if ('-' == *s)
-			f->left_adjusted = TRUE;
-		++s;
-	}
-	if (f->left_adjusted)
-		f->pad = ' ';
-	return (s);
+	unsigned int		nbr;
+
+	nbr = va_arg(l, unsigned int);
+	if (0 == nbr)
+		f->hash = 0;
+	return (convert_generic_unsigned_number(nbr, f, BASE_HAX_LOWER));
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags.c                                            :+:      :+:    :+:   */
+/*   flag.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "flags.h"
+#include "flag.h"
 #include "ft_printf.h"
 
-static const char	*get_width(const char *s, t_flags *f)
+static const char	*get_width(const char *s, t_flag *f)
 {
 	if ('.' == *s)
 		return (s);
@@ -24,13 +24,13 @@ static const char	*get_width(const char *s, t_flags *f)
 	return (s);
 }
 
-static const char	*get_conversion(const char *s, t_flags *f)
+static const char	*get_conversion(const char *s, t_flag *f)
 {
 	f->conversion = *s;
 	return (s + 1);
 }
 
-static const char *get_precision(const char *s, t_flags *f)
+static const char *get_precision(const char *s, t_flag *f)
 {
 	if ('.' == *s)
 	{
@@ -43,10 +43,10 @@ static const char *get_precision(const char *s, t_flags *f)
 	return (s);
 }
 
-const char	*get_flags(const char *s, t_flags *f)
+const char	*get_flag(const char *s, t_flag *f)
 {
-	ft_bzero(f, sizeof(t_flags));
-	s = parse_flags(s, f);
+	ft_bzero(f, sizeof(t_flag));
+	s = parse_flag(s, f);
 	s = get_width(s, f);
 	s = get_precision(s, f);
 	s = get_conversion(s, f);

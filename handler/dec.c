@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags.h                                            :+:      :+:    :+:   */
+/*   dec.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 11:14:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/22 11:20:32 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/23 16:11:57 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FLAGS_H
-# define FLAGS_H
+#include <stdarg.h>
 
-# define ALL_FLAGS		"-0# +"
+#include "libft.h"
+#include "generic.h"
+#include "base.h"
+#include "printable_mem.h"
 
-typedef struct s_flags
+t_printable_mem	*convert_dec(va_list l, t_flag *f)
 {
-	size_t	precision_value;
-	int		is_precision;
-	int		is_upper;
-	int		hash;
-	int		space;
-	int		plus;
-	int		left_adjusted;
-	int		width;
-	char	conversion;
-	char	pad;
-}	t_flags;
+	int	nbr;
 
-const char	*parse_flags(const char *s, t_flags *f);
-const char	*get_flags(const char *s, t_flags *f);
-
-#endif
+	nbr = va_arg(l, int);
+	return (convert_generic_number(nbr, f, BASE_DEC_STR));
+}

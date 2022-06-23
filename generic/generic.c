@@ -6,14 +6,14 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 14:05:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/22 16:01:10 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:11:57 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 #include "libft.h"
-#include "flags.h"
+#include "flag.h"
 #include "printable_mem.h"
 
 size_t	get_smaller(size_t a, size_t b)
@@ -30,7 +30,7 @@ size_t	get_bigger(size_t a, size_t b)
 	return (b);
 }
 
-size_t	generic_get_start(t_flags *f, size_t mem_size, size_t digit, size_t pad)
+size_t	generic_get_start(t_flag *f, size_t mem_size, size_t digit, size_t pad)
 {
 	if (f->left_adjusted)
 		return (0);
@@ -38,7 +38,7 @@ size_t	generic_get_start(t_flags *f, size_t mem_size, size_t digit, size_t pad)
 	return (mem_size - digit - pad);
 }
 
-t_printable_mem	*generic_create_mem(t_flags *f, size_t size) // TODO move?
+t_printable_mem	*generic_create_mem(t_flag *f, size_t size) // TODO move?
 {
 	t_printable_mem	*ret;
 
@@ -58,7 +58,7 @@ t_printable_mem	*generic_create_mem(t_flags *f, size_t size) // TODO move?
 	return (ret);
 }
 
-size_t	get_size_for_number(t_flags *f, size_t digit, size_t pad)
+size_t	get_size_for_number(t_flag *f, size_t digit, size_t pad)
 {
 	size_t	size;
 
@@ -68,7 +68,7 @@ size_t	get_size_for_number(t_flags *f, size_t digit, size_t pad)
 }
 
 
-size_t	add_precision_pad(char *ret, size_t pos, t_flags *f, size_t nbr_len)
+size_t	add_precision_pad(char *ret, size_t pos, t_flag *f, size_t nbr_len)
 {
 	size_t	i;
 

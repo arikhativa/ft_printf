@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char.c                                             :+:      :+:    :+:   */
+/*   ptr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 09:52:33 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/21 14:04:24 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/23 16:17:46 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <stdlib.h>
 
-#include "flags.h"
-#include "converter.h"
+#include "libft.h"
+#include "generic.h"
+#include "ft_printf.h"
+#include "base.h"
 #include "printable_mem.h"
+#include "handler.h"
+#include "convert.h"
 
-t_printable_mem	*convert_char(va_list l, t_flags *f)
+t_printable_mem	*convert_ptr(va_list l, t_flag *f)
 {
-	char	s[2];
+	void	*p;
 
-	s[0] = va_arg(l, int);
-	s[1] = '\0';
-	return (create_str_to_print(s, f, 1));
+	p = va_arg(l, void *);
+	f->hash = TRUE;
+	if (!p)
+	{
+		f->hash = FALSE;
+		return (create_str_to_print(NIL_STR, f, ft_strlen(NIL_STR)));
+	}
+	return (convert_generic_unsigned_number((size_t)p, f, BASE_HAX_LOWER));
 }

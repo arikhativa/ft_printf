@@ -6,19 +6,20 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/22 11:31:55 by yoav             ###   ########.fr        #
+#    Updated: 2022/06/23 16:12:25 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRC = \
+	$(wildcard handler/*.c) \
 	$(wildcard list/*.c) \
-	$(wildcard converter/*.c) \
+	$(wildcard convert/*.c) \
 	$(wildcard parser/*.c) \
 	$(wildcard generic/*.c) \
 	$(wildcard printer/*.c) \
-	$(wildcard flags/*.c) \
+	$(wildcard flag/*.c) \
 	$(wildcard count/*.c) \
 	$(wildcard printable_mem/*.c) \
 	ft_printf.c
@@ -31,8 +32,7 @@ BONUS_OBJ = $(BONUS_SRC:.c=.o)
 LIBFT = libft
 
 CC = gcc
-CFLAGS = -c -I$(HED) -Ilibft
-# CFLAGS = -Wall -Werror -Wextra -c -I$(HED) -Ilibft
+CFLAGS = -Wall -Werror -Wextra -c -I$(HED) -Ilibft
 RM = rm -f
 AR = ar -rcs
 

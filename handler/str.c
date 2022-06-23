@@ -6,33 +6,33 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 12:39:34 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 11:42:40 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/23 16:17:38 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <stdlib.h>
 
-#include "flags.h"
+#include "flag.h"
 #include "libft.h"
 #include "parser.h"
 #include "generic.h"
 #include "printable_mem.h"
-#include "converter.h"
+#include "handler.h"
 
-inline static size_t	get_size_for_str(t_flags *f, size_t len)
+inline static size_t	get_size_for_str(t_flag *f, size_t len)
 {
 	return (get_bigger(f->width, len));
 }
 
-static size_t	get_start_for_str(t_flags *f, size_t mem_size, size_t len)
+static size_t	get_start_for_str(t_flag *f, size_t mem_size, size_t len)
 {
 	if (f->left_adjusted)
 		return (0);
 	return (mem_size - len);
 }
 
-t_printable_mem	*create_str_to_print(char *s, t_flags *f, size_t len)
+t_printable_mem	*create_str_to_print(char *s, t_flag *f, size_t len)
 {
 	t_printable_mem	*m;
 	size_t			start;
@@ -50,7 +50,7 @@ t_printable_mem	*create_str_to_print(char *s, t_flags *f, size_t len)
 	return (m);
 }
 
-t_printable_mem	*convert_str(va_list l, t_flags *f)
+t_printable_mem	*convert_str(va_list l, t_flag *f)
 {
 	char	*s;
 
