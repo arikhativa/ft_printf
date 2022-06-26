@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONVERTER_H
-# define CONVERTER_H
+#ifndef CONVERT_H
+# define CONVERT_H
 
 # include <stddef.h>
 
-void			itoa_base(long n, char *base_str, char *ret, size_t digit);
-void			stoa_base(size_t n, char *base_str, char *ret, size_t digit);
+void	itoa_base(long n, char *base_str, char *ret, size_t digit);
+void	stoa_base(size_t n, char *base_str, char *ret, size_t digit);
 
 #endif

@@ -30,13 +30,13 @@ static const char	*get_conversion(const char *s, t_flag *f)
 	return (s + 1);
 }
 
-static const char *get_precision(const char *s, t_flag *f)
+static const char	*get_precision(const char *s, t_flag *f)
 {
 	if ('.' == *s)
 	{
 		++s;
 		f->is_precision = TRUE;
-		f->precision_value = ft_atoi(s); // TODO mybe not atoi
+		f->precision_value = ft_atoi(s);
 		while (ft_isdigit(*s))
 			++s;
 	}

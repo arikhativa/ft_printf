@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 14:05:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:11:57 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/26 18:18:12 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,6 @@ size_t	generic_get_start(t_flag *f, size_t mem_size, size_t digit, size_t pad)
 	return (mem_size - digit - pad);
 }
 
-t_printable_mem	*generic_create_mem(t_flag *f, size_t size) // TODO move?
-{
-	t_printable_mem	*ret;
-
-	ret = (t_printable_mem *)malloc(sizeof(t_printable_mem));
-	if (ret)
-	{
-		ret->mem = (char *)malloc(sizeof(char) * (size + 1));
-		if (!ret->mem)
-		{
-			free(ret);
-			return (NULL);
-		}
-		ft_memset(ret->mem, f->pad, size);
-		ret->mem[size] = '\0';
-		ret->size = size;
-	}
-	return (ret);
-}
-
 size_t	get_size_for_number(t_flag *f, size_t digit, size_t pad)
 {
 	size_t	size;
@@ -66,7 +46,6 @@ size_t	get_size_for_number(t_flag *f, size_t digit, size_t pad)
 	size = get_bigger((f->precision_value + pad), size);
 	return (size);
 }
-
 
 size_t	add_precision_pad(char *ret, size_t pos, t_flag *f, size_t nbr_len)
 {
@@ -80,4 +59,3 @@ size_t	add_precision_pad(char *ret, size_t pos, t_flag *f, size_t nbr_len)
 	}
 	return (pos + i);
 }
-

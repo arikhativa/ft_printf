@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:13:08 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/26 18:12:49 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_printable_mem	*convert_generic_number(long nbr, t_flag *f, char *base)
 	digit = count_digit_by_base(nbr, ft_strlen(base));
 	pad = is_pad(f, nbr);
 	size = get_size_for_number(f, digit, pad);
-	ret = generic_create_mem(f, size);
+	ret = create_printable_mem(f, size);
 	if (!ret)
 		return (NULL);
 	i = generic_get_start(f, size, digit, pad);

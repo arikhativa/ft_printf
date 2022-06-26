@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#ifndef INPUT_H
+# define INPUT_H
 
 # include <stdarg.h>
 
 # include "libft.h"
 
 int			is_escp(const char *s);
-int			is_sep(const char *s);
+int			is_flag(const char *s);
 int			parse_input(const char *input, t_list **node, va_list list);
 size_t		count_normal_char_len(const char *s);
 

@@ -6,12 +6,13 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 09:04:31 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:49:02 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/26 18:11:35 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
 #include "input.h"
+#include "flag.h"
 
 int	is_escp(const char *s)
 {
@@ -22,11 +23,11 @@ int	is_escp(const char *s)
 	return (FALSE);
 }
 
-int	is_sep(const char *s)
+int	is_flag(const char *s)
 {
 	if (!s || !*s)
 		return (FALSE);
-	if (*s == SEP_CHAR && *(s + 1) != SEP_CHAR)
+	if (*s == SEP_CHAR && is_flag_valid(s))
 		return (TRUE);
 	return (FALSE);
 }

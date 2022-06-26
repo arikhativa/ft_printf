@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 12:39:34 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:35:24 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/26 18:12:49 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_printable_mem	*create_str_to_print(char *s, t_flag *f, size_t len)
 	if (f->is_precision)
 		len = get_smaller(len, f->precision_value);
 	size = get_size_for_str(f, len);
-	m = generic_create_mem(f, size);
+	m = create_printable_mem(f, size);
 	if (m)
 	{
 		start = get_start_for_str(f, size, len);

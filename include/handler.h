@@ -6,12 +6,12 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:10:20 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:35:24 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/26 18:19:53 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUNDLER_H
-# define HUNDLER_H
+#ifndef HANDLER_H
+# define HANDLER_H
 
 # include <stdarg.h>
 

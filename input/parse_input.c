@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:57:45 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/26 18:17:00 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@
 
 const char	*skip_normal_str(const char *s)
 {
-	while (*s && !is_sep(s))
+	while (*s)
 	{
+		if (is_flag(s))
+			break ;
 		if (is_escp(s))
 			++s;
 		++s;
 	}
-	if (is_sep(s))
+	if (is_flag(s))
 		++s;
 	return (s);
 }
@@ -40,7 +42,7 @@ size_t	count_normal_char_len(const char *s)
 	c = 0;
 	while (*s)
 	{
-		if (is_sep(s))
+		if (is_flag(s))
 			s = skip_flag(s);
 		else if (is_escp(s))
 		{
@@ -66,7 +68,7 @@ int	parse_input(const char *input, t_list **node, va_list list)
 	while (*input)
 	{
 		input = get_flag(input, &flag);
-		m = create_printable_mem(list, &flag);
+		m = convert_input_to_mem(list, &flag);
 		if (NULL == m)
 			return (ERROR);
 		if (add_param_to_list(node, m) == ERROR)

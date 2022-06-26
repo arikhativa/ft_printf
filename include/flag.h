@@ -20,13 +20,13 @@
 typedef struct s_flag
 {
 	size_t	precision_value;
-	int		is_precision;
-	int		is_upper;
-	int		hash;
-	int		space;
-	int		plus;
-	int		left_adjusted;
 	int		width;
+	char	is_precision;
+	char	is_upper;
+	char	hash;
+	char	space;
+	char	plus;
+	char	left_adjusted;
 	char	conversion;
 	char	pad;
 }	t_flag;
@@ -35,5 +35,6 @@ const char	*parse_flag(const char *s, t_flag *f);
 const char	*get_flag(const char *s, t_flag *f);
 const char	*skip_flag(const char *s);
 int			is_handler_char(char c);
+int			is_flag_valid(const char *s);
 
 #endif

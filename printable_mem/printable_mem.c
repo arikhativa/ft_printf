@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:25:16 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:35:24 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/26 18:17:00 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "handler.h"
 #include "printable_mem.h"
 
-t_printable_mem	*create_printable_mem(va_list l, t_flag *flag)
+t_printable_mem	*convert_input_to_mem(va_list l, t_flag *flag)
 {
 	if ('c' == flag->conversion)
 		return (handle_char(l, flag));
@@ -78,4 +78,24 @@ size_t	count_all_printable_mem_len(t_list *list)
 		list = list->next;
 	}
 	return (c);
+}
+
+t_printable_mem	*create_printable_mem(t_flag *f, size_t size)
+{
+	t_printable_mem	*ret;
+
+	ret = (t_printable_mem *)malloc(sizeof(t_printable_mem));
+	if (ret)
+	{
+		ret->mem = (char *)malloc(sizeof(char) * (size + 1));
+		if (!ret->mem)
+		{
+			free(ret);
+			return (NULL);
+		}
+		ft_memset(ret->mem, f->pad, size);
+		ret->mem[size] = '\0';
+		ret->size = size;
+	}
+	return (ret);
 }

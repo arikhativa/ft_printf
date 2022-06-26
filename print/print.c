@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:13:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:57:03 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/26 18:03:09 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	cpy_from_input(char **dest, const char **input)
 	i = 0;
 	while (s[i])
 	{
-		if (is_sep(s + i))
+		if (is_flag(s + i))
 			break ;
 		if (is_escp(s + i))
 			++s;
