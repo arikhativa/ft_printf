@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/26 18:24:45 by yoav             ###   ########.fr        #
+#    Updated: 2022/06/26 18:50:15 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ AR = ar -rcs
 
 all: $(NAME)
 
-t: all
+t: all #TODO
 	gcc -Iinclude test.c $(NAME)
 
 $(NAME): $(OBJ) $(HED) Makefile

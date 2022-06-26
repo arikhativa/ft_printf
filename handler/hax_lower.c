@@ -6,14 +6,15 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/23 16:36:52 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/26 18:36:38 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 
+#include "flag.h"
+#include "define.h"
 #include "generic.h"
-#include "libft.h"
 #include "base.h"
 #include "printable_mem.h"
 
@@ -23,6 +24,6 @@ t_printable_mem	*handle_hax_lower(va_list l, t_flag *f)
 
 	nbr = va_arg(l, unsigned int);
 	if (0 == nbr)
-		f->hash = 0;
+		f->hash = FALSE;
 	return (convert_generic_unsigned_number(nbr, f, BASE_HAX_LOWER_STR));
 }
