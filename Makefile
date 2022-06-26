@@ -6,23 +6,35 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/26 18:20:17 by yoav             ###   ########.fr        #
+#    Updated: 2022/06/26 18:24:45 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRC = \
-	$(wildcard handler/*.c) \
-	$(wildcard list/*.c) \
-	$(wildcard convert/*.c) \
-	$(wildcard input/*.c) \
-	$(wildcard generic/*.c) \
-	$(wildcard print/*.c) \
-	$(wildcard flag/*.c) \
-	$(wildcard count/*.c) \
-	$(wildcard printable_mem/*.c) \
-	ft_printf.c
+	input/percent_sign.c \
+	input/parse_input.c \
+	convert/itoa_base.c \
+	convert/stoa_base.c \
+	printable_mem/printable_mem.c \
+	flag/flag.c \
+	flag/parse_flag.c \
+	flag/validate_flag.c \
+	count/count_digit.c \
+	generic/generic_unsigned_number.c \
+	generic/generic.c \
+	generic/generic_number.c \
+	ft_printf.c \
+	print/print.c \
+	handler/char.c \
+	handler/hax_uppwer.c \
+	handler/ptr.c \
+	handler/str.c \
+	handler/dec.c \
+	handler/unsigned_dec.c \
+	handler/hax_lower.c \
+	list/list.c
 
 BONUS_SRC = no.c
 
@@ -32,7 +44,6 @@ BONUS_OBJ = $(BONUS_SRC:.c=.o)
 LIBFT = libft
 
 CC = gcc
-# CFLAGS =  -c -I$(HED) -Ilibft
 CFLAGS = -Wall -Werror -Wextra -c -I$(HED) -Ilibft
 RM = rm -f
 AR = ar -rcs
