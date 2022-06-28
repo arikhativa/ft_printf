@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 10:01:54 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/28 12:30:12 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/28 14:51:34 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ t_printable_mem	*convert_generic_unsigned_number(size_t nbr, t_flag *f, \
 size_t			get_size_for_number(t_flag *f, size_t digit, size_t pad);
 size_t			add_precision_pad(char *ret, size_t pos, t_flag *f, \
 									size_t nbr_len);
+t_printable_mem	*create_empty_str(t_flag *f);
+int				should_print_zero(int is_zero, t_flag *f);
 
 #endif

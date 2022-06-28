@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/26 18:50:15 by yoav             ###   ########.fr        #
+#    Updated: 2022/06/28 14:45:16 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC = \
 	generic/generic_unsigned_number.c \
 	generic/generic.c \
 	generic/generic_number.c \
+	generic/zero_and_precision.c \
 	ft_printf.c \
 	print/print.c \
 	handler/char.c \
@@ -44,7 +45,8 @@ BONUS_OBJ = $(BONUS_SRC:.c=.o)
 LIBFT = libft
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -c -I$(HED) -Ilibft
+CFLAGS =  -c -I$(HED) -Ilibft
+# CFLAGS = -Wall -Werror -Wextra -c -I$(HED) -Ilibft
 RM = rm -f
 AR = ar -rcs
 

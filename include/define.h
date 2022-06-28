@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:48:05 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/28 12:29:42 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/28 14:39:58 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 # define FALSE				!TRUE
 # define SEP_CHAR			'%'
 # define SUPPORTED_TYPES	"cspdiuxX"
+# define EMPTY_STR			""
 
 #endif

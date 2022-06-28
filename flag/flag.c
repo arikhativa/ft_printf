@@ -37,6 +37,7 @@ static const char	*get_precision(const char *s, t_flag *f)
 		++s;
 		f->is_precision = TRUE;
 		f->precision_value = ft_atoi(s);
+		f->pad = ' ';
 		while (ft_isdigit(*s))
 			++s;
 	}

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dec.c                                              :+:      :+:    :+:   */
+/*   zero_and_precision.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/28 14:53:05 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/28 14:44:54 by yoav              #+#    #+#             */
+/*   Updated: 2022/06/28 14:53:13 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-
-#include "flag.h"
-#include "generic.h"
-#include "base.h"
+#include "define.h"
 #include "printable_mem.h"
+#include "flag.h"
 #include "handler.h"
 
-t_printable_mem	*handle_dec(va_list l, t_flag *f)
+int	should_print_zero(int is_zero, t_flag *f)
 {
-	int	nbr;
+	return (!(is_zero && f->is_precision && 0 == f->precision_value));
+}
 
-	nbr = va_arg(l, int);
-	if (!should_print_zero((0 == nbr), f))
-		return (create_empty_str(f));
-	return (convert_generic_number(nbr, f, BASE_DEC_STR));
+t_printable_mem	*create_empty_str(t_flag *f)
+{
+	return (create_str_to_print(EMPTY_STR, f, ft_strlen(EMPTY_STR)));
 }
