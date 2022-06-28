@@ -4,23 +4,14 @@
 
 int main()
 {
-	// printf("%1%\n");
-	// printf("%.1%\n");
-	// printf("%-%\n");
-	// printf("%-0%\n");
-	// printf("%#%\n");
-	// printf("% %\n");
-	// printf("%+%\n");
-	// printf("%0%\n");
+	int	r;
 
+
+	r = printf("'%10.5s'\n", NULL);
+
+	printf("real: %d\n", r);
 	printf("\n---\n");
 
-	ft_printf("%1%\n");
-	ft_printf("%.1%\n");
-	ft_printf("%-%\n");
-	ft_printf("%-0%\n");
-	ft_printf("%#%\n");
-	ft_printf("% %\n");
-	ft_printf("%+%\n");
-	ft_printf("%0%\n");
+	r = ft_printf("'%1s'\n", NULL);
+	r = ft_printf("'%10.5s'\n", NULL);
 }

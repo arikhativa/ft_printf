@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 12:39:34 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/28 12:28:40 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/28 14:23:18 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,18 @@ t_printable_mem	*create_str_to_print(char *s, t_flag *f, size_t len)
 t_printable_mem	*handle_str(va_list l, t_flag *f)
 {
 	char	*s;
+	char	empty_str;
 
 	s = va_arg(l, char *);
 	if (!s)
+	{
 		s = NULL_STR;
+		if (f->is_precision && f->precision_value < ft_strlen(NULL_STR))
+		{
+			empty_str = '\0';
+			s = &empty_str;
+		}
+	}
 	f->pad = ' ';
 	return (create_str_to_print(s, f, ft_strlen(s)));
 }
