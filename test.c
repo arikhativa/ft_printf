@@ -7,14 +7,25 @@ int main()
 	int	r;
 
 
-	r = printf("'%.1i'\n", 0);
-	r = printf("'%.0i'\n", 0);
+	r = printf("'%.p'\n", NULL);
+	r = printf("'%.1p'\n", NULL);
+	r = printf("'%1p'\n", NULL);
+	r = printf("'%1.1p'\n", NULL);
+
+	r = printf("'%10p'\n", NULL);
+	r = printf("'%.10p'\n", NULL);
 
 	printf("real: %d\n", r);
 	printf("\n---\n");
 
-	r = ft_printf("'%.1i'\n", 0);
-	r = ft_printf("'%.0i'\n", 0);
+	r = ft_printf("'%.p'\n", NULL);
+	r = ft_printf("'%.1p'\n", NULL);
+	r = ft_printf("'%1p'\n", NULL);
+	r = ft_printf("'%1.1p'\n", NULL);
+
+	r = ft_printf("'%10p'\n", NULL);
+	r = ft_printf("'%.10p'\n", NULL);
+
 
 
 }
