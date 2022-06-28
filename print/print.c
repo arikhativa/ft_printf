@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:13:38 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/26 18:03:09 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/28 14:08:19 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,21 @@ static void	cpy_from_input(char **dest, const char **input)
 {
 	const char	*s;
 	char		*d;
-	int			i;
 
 	s = *input;
 	d = *dest;
-	i = 0;
-	while (s[i])
+	while (*s)
 	{
-		if (is_flag(s + i))
+		if (is_flag(s))
 			break ;
-		if (is_escp(s + i))
-			++s;
-		d[i] = s[i];
-		++i;
+		if (is_escp(s))
+			s = skip_escp(s);
+		*d = *s;
+		++d;
+		++s;
 	}
-	*dest = (d + i);
-	*input = skip_flag(s + i);
+	*dest = (d);
+	*input = skip_flag(s);
 }
 
 static void	cpy_from_list(char **dest, t_list **list)

@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:50:32 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/26 18:17:00 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/28 14:11:02 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ const char	*skip_normal_str(const char *s)
 		if (is_flag(s))
 			break ;
 		if (is_escp(s))
-			++s;
+			s = skip_escp(s);
 		++s;
 	}
 	if (is_flag(s))
@@ -46,7 +46,7 @@ size_t	count_normal_char_len(const char *s)
 			s = skip_flag(s);
 		else if (is_escp(s))
 		{
-			s += 2;
+			s = skip_escp(s) + 1;
 			++c;
 		}
 		else
