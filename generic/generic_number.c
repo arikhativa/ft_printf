@@ -6,17 +6,15 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 09:57:43 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/26 18:41:51 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/28 12:24:49 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-#include "libft.h"
 #include "convert.h"
 #include "generic.h"
 #include "count.h"
-#include "base.h"
 #include "printable_mem.h"
 #include "flag.h"
 
@@ -27,6 +25,12 @@ static int	is_pad(t_flag *f, long nbr)
 	return (0);
 }
 
+static size_t	add_pad(char ch, size_t i, char *ret)
+{
+	ret[i] = ch;
+	return (1);
+}
+
 static size_t	add_pad_if_needed(t_flag *f, long nbr, size_t start, char *ret)
 {
 	size_t	i;
@@ -35,20 +39,11 @@ static size_t	add_pad_if_needed(t_flag *f, long nbr, size_t start, char *ret)
 	if ('0' == f->pad)
 		i = 0;
 	if (0 > nbr)
-	{
-		ret[i] = '-';
-		++start;
-	}
+		start += add_pad('-', i, ret);
 	else if (f->plus)
-	{
-		ret[i] = '+';
-		++start;
-	}
+		start += add_pad('+', i, ret);
 	else if (f->space)
-	{
-		ret[i] = ' ';
-		++start;
-	}
+		start += add_pad(' ', i, ret);
 	return (start);
 }
 

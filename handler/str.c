@@ -6,7 +6,7 @@
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 12:39:34 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/26 18:12:49 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/28 12:28:40 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 
 #include "flag.h"
 #include "libft.h"
-#include "input.h"
 #include "generic.h"
 #include "printable_mem.h"
 #include "handler.h"
 
-inline static size_t	get_size_for_str(t_flag *f, size_t len)
+static size_t	get_size_for_str(t_flag *f, size_t len)
 {
 	return (get_bigger(f->width, len));
 }

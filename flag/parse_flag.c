@@ -16,7 +16,7 @@
 
 int	is_handler_char(char c)
 {
-	return (ft_strchr(CONVERT_STR, c) != NULL);
+	return (ft_strchr(SUPPORTED_TYPES, c) != NULL);
 }
 
 const char	*skip_flag(const char *s)
