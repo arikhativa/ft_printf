@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 11:03:57 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/15 11:08:45 by yoav             ###   ########.fr       */
+/*   Created: 2022/06/15 09:23:00 by yoav              #+#    #+#             */
+/*   Updated: 2022/07/17 12:57:13 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*tmp;
-	t_list	*node;
-
-	if (!lst | !del)
-		return ;
-	node = *lst;
-	while (node)
+	if (lst)
 	{
-		tmp = node->next;
-		ft_lstdelone(node, del);
-		node = tmp;
+		if (*lst)
+			new->next = *lst;
+		*lst = new;
 	}
-	*lst = NULL;
 }

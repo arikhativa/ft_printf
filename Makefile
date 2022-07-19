@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/06/28 15:30:49 by yoav             ###   ########.fr        #
+#    Updated: 2022/07/19 13:06:59 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,41 +37,62 @@ SRC = \
 	handler/hax_lower.c \
 	list/list.c
 
+HEADER_NAME = \
+	base.h \
+	convert.h \
+	count.h \
+	define.h \
+	flag.h \
+	ft_printf.h \
+	generic.h \
+	handler.h \
+	input.h \
+	list.h \
+	print.h \
+	printable_mem.h \
+
+# TODO
 BONUS_SRC = no.c
 
+HEADER_DIR = include
+HEADER = $(addprefix $(HEADER_DIR)/, $(HEADER_NAME))
 OBJ = $(SRC:.c=.o)
-HED = include
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
-LIBFT = libft
+
+# libft
+LIBFT_NAME = libft.a
+LIBFT_DIR = libft
+LIBFT = $(addprefix $(LIBFT_DIR)/, $(LIBFT_NAME))
 
 CC = gcc
-#  TODO
-# CFLAGS =  -c -I$(HED) -Ilibft
-CFLAGS = -Wall -Werror -Wextra -c -I$(HED) -Ilibft
-RM = rm -f
-AR = ar -rcs
+CFLAGS = -Wall -Werror -Wextra -c -I$(HEADER_DIR) -I$(LIBFT_DIR)
+ARFLAGS = rcs
 
 .PHONY: clean fclean re all bonus
-.PRECIOUS: $(SRC) $(HED) $(LIBFT)
+
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) $< -o $@ 
 
 all: $(NAME)
 
-t: all #TODO
-	gcc -Iinclude test.c $(NAME)
+# $ ar r libarith.a subtraction.o 
 
-$(NAME): $(OBJ) $(HED) Makefile
-	$(MAKE) bonus -C ./$(LIBFT)
-	cp $(LIBFT)/libft.a $(NAME)
-	$(AR) $(NAME) $(OBJ)
+# $ ar t libarith.a
+
+$(LIBFT):
+	$(MAKE) bonus -sC ./$(LIBFT_DIR)
+
+$(NAME): $(OBJ) $(LIBFT) $(HEADER)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(LIBFT) 
 
 bonus: $(NAME) 
 
 clean:
-	$(MAKE) clean -C ./libft
+	$(MAKE) clean -sC $(LIBFT_DIR)
 	$(RM) $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
-	$(MAKE) fclean -C ./libft
+	$(MAKE) fclean -sC $(LIBFT_DIR)
 	$(RM) $(NAME)
 
 re: fclean all
