@@ -6,7 +6,7 @@
 #    By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 15:29:13 by yoav              #+#    #+#              #
-#    Updated: 2022/07/19 13:06:59 by yoav             ###   ########.fr        #
+#    Updated: 2022/07/19 17:54:49 by yoav             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,13 +37,12 @@ SRC = \
 	handler/hax_lower.c \
 	list/list.c
 
-HEADER_NAME = \
+PRIVATE_HEADERS = \
 	base.h \
 	convert.h \
 	count.h \
 	define.h \
 	flag.h \
-	ft_printf.h \
 	generic.h \
 	handler.h \
 	input.h \
@@ -51,11 +50,8 @@ HEADER_NAME = \
 	print.h \
 	printable_mem.h \
 
-# TODO
-BONUS_SRC = no.c
-
 HEADER_DIR = include
-HEADER = $(addprefix $(HEADER_DIR)/, $(HEADER_NAME))
+HEADER = $(addprefix $(HEADER_DIR)/, $(PRIVATE_HEADERS)) ft_printf.h
 OBJ = $(SRC:.c=.o)
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
@@ -66,26 +62,21 @@ LIBFT = $(addprefix $(LIBFT_DIR)/, $(LIBFT_NAME))
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -c -I$(HEADER_DIR) -I$(LIBFT_DIR)
-ARFLAGS = rcs
-
-.PHONY: clean fclean re all bonus
+ARFLAGS = rs
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) $< -o $@ 
 
 all: $(NAME)
 
-# $ ar r libarith.a subtraction.o 
-
-# $ ar t libarith.a
-
 $(LIBFT):
 	$(MAKE) bonus -sC ./$(LIBFT_DIR)
 
 $(NAME): $(OBJ) $(LIBFT) $(HEADER)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(LIBFT) 
+	cp $(LIBFT) $(NAME)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 
-bonus: $(NAME) 
+bonus: $(NAME)
 
 clean:
 	$(MAKE) clean -sC $(LIBFT_DIR)
@@ -96,3 +87,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: clean fclean re all bonus
